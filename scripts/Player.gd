@@ -2,6 +2,10 @@ extends KinematicBody2D
 
 
 export var speed = 400 # How fast the player will move (pixels/sec).
+export var gravity := 2000
+export var jump_speed := 550
+
+var velocity := Vector2.ZERO
 var screen_size # Size of the game window.
 
 # Called when the node enters the scene tree for the first time.
@@ -10,40 +14,51 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 func _process(delta):
-	var velocity = Vector2.ZERO # The player's movement vector.
+	change_animation()
+	if Input.is_action_just_pressed("reset_player"):
+		position = Vector2(0.0,0.0)
+
+func _physics_process(delta: float) -> void:
+	# reset horizontal velocity
+	velocity.x = 0
+
+	# set horizontal velocity
 	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
+		velocity.x += speed
 	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
+		velocity.x -= speed
 
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-		$AnimatedSprite.play()
-	else:
-		$AnimatedSprite.stop()
-		
-	position += velocity * delta
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 0, screen_size.y)
-	
-	if velocity.x != 0:
-		$AnimatedSprite.animation = "walk"
-		$AnimatedSprite.flip_v = false
-		# See the note below about boolean assignment.
-		$AnimatedSprite.flip_h = velocity.x < 0
-	elif velocity.x == 0:
-		$AnimatedSprite.animation = "default"
-		$AnimatedSprite.flip_v = velocity.y > 0
-		
-	if velocity.x < 0:
+	# apply gravity
+	# player always has downward velocity
+	velocity.y += gravity * delta
+
+	# jump will happen on the next frame
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			velocity.y = -jump_speed # negative Y is up in Godot
+
+	# actually move the player
+	velocity = move_and_slide(velocity, Vector2.UP)
+
+func change_animation():
+	# face left or right
+	if velocity.x > 0:
 		$AnimatedSprite.flip_h = false
-	else:
+	elif velocity.x < 0:
 		$AnimatedSprite.flip_h = true
-
+	
+	if velocity.y < 0: # negative Y is up
+		if velocity.x != 0:
+			$AnimatedSprite.play("jump")
+		else:
+			$AnimatedSprite.play("idle")
+	else:
+		if velocity.x != 0:
+			$AnimatedSprite.play("walk")
+		else:
+			$AnimatedSprite.play("idle")	
+	
 func start(pos):
 	position = pos
 	show()
