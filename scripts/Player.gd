@@ -17,7 +17,7 @@ func _ready():
 func _process(delta):
 	change_animation()
 	if Input.is_action_just_pressed("reset_player"):
-		position = Vector2(0.0,0.0)
+		position = Vector2(0,0)
 
 func _physics_process(delta: float) -> void:
 	# reset horizontal velocity
@@ -53,9 +53,11 @@ func change_animation():
 			$AnimatedSprite.play("jump")
 		else:
 			$AnimatedSprite.play("idle")
+	elif velocity.y > 0:
+		$AnimatedSprite.play("fall")
 	else:
 		if velocity.x != 0:
-			$AnimatedSprite.play("walk")
+			$AnimatedSprite.play("run")
 		else:
 			$AnimatedSprite.play("idle")	
 	
