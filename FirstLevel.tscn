@@ -445,9 +445,8 @@ shape = SubResource( 24 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 8 )
-animation = "fall"
-frame = 4
-playing = true
+animation = "idle"
+frame = 8
 
 [node name="PlayerCamera" type="Camera2D" parent="Player/AnimatedSprite"]
 position = Vector2( 2.63636, -83.7273 )
