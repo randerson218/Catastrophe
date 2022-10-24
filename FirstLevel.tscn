@@ -49,7 +49,7 @@
 [ext_resource path="res://resources/cat/Fall (1).png" type="Texture" id=47]
 [ext_resource path="res://resources/Boat.png" type="Texture" id=48]
 [ext_resource path="res://icon.png" type="Texture" id=49]
-[ext_resource path="res://Boat.gd" type="Script" id=50]
+[ext_resource path="res://scripts/Boat.gd" type="Script" id=50]
 
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 150, 212.5 )
