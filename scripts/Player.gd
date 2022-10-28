@@ -5,6 +5,7 @@ export var speed = 400 # How fast the player will move (pixels/sec).
 export var gravity := 2000
 export var jump_speed := 550
 
+var in_boat = false
 var velocity := Vector2.ZERO
 var screen_size # Size of the game window.
 
@@ -31,7 +32,8 @@ func _physics_process(delta: float) -> void:
 
 	# apply gravity
 	# player always has downward velocity
-	velocity.y += gravity * delta
+	if not in_boat:
+		velocity.y += gravity * delta
 
 	# jump will happen on the next frame
 	if Input.is_action_just_pressed("jump"):
