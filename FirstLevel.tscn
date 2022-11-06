@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://resources/cat/Walk (5).png" type="Texture" id=1]
 [ext_resource path="res://resources/tiles_spritesheet.png" type="Texture" id=2]
@@ -453,11 +453,6 @@ shader_param/blue_tint = Color( 0.4, 0.905882, 1, 1 )
 shader_param/sprite_scale = Vector2( 7.5, 5.5 )
 shader_param/scale_x = 0.67
 
-[sub_resource type="Curve2D" id=28]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 560, 80, 0, 0, 0, 0, 1544, 88, 0, 0, 0, 0, 1544, 480, 0, 0, 0, 0, 560, 480, 0, 0, 0, 0, 560, 80 )
-}
-
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 52 )
 __meta__ = {
@@ -518,17 +513,10 @@ polygon = PoolVector2Array( -403, 52, -362, 59, -352, 41, 221, 54, 325, 37, 431,
 
 [node name="Water" type="Sprite" parent="."]
 material = SubResource( 26 )
-position = Vector2( 1041, 273.5 )
-scale = Vector2( 15.6875, 6.39062 )
+position = Vector2( 1721.5, 273.5 )
+scale = Vector2( 36.9531, 6.39062 )
 z_index = -2
 texture = ExtResource( 49 )
-
-[node name="FishPath" type="Path2D" parent="."]
-curve = SubResource( 28 )
-
-[node name="FishSpawnLocation" type="PathFollow2D" parent="FishPath"]
-position = Vector2( 560, 80 )
-rotation = 0.00812998
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -538,7 +526,6 @@ one_shot = true
 wait_time = 0.25
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scroll_limit_end = Vector2( 0, 270 )
 scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]

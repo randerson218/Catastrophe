@@ -9,9 +9,13 @@ var water_right = 0
 func _ready():
 	randomize()
 	new_game()
-	water_left = $Water.position.x/2
-	water_right = $Water.position.x/2 + $Water.texture.get_width() * $Water.scale.x
+	#water_left = $Water.position.x/2 - ($Water.texture.get_width() * $Water.scale.x)
+	#water_right = $Water.position.x/2 + ($Water.texture.get_width() * $Water.scale.x)
 	
+	var edge_distance = ($Water.texture.get_width() * $Water.scale.x)/2
+	
+	water_left = $Water.position.x - edge_distance
+	water_right= $Water.position.x + edge_distance
 
 func _process(delta):
 	var allfish = get_tree().get_nodes_in_group("fish")
