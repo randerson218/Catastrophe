@@ -1,7 +1,7 @@
 [gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://resources/pixel_cats/pipo-nekonin001.png" type="Texture" id=1]
-[ext_resource path="res://resources/pixel_spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://resources/tiles/pixel_spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=3]
 [ext_resource path="res://resources/cartoon_cat/Jump (6).png" type="Texture" id=16]
 [ext_resource path="res://resources/cartoon_cat/Jump (1).png" type="Texture" id=19]
@@ -27,7 +27,7 @@
 [ext_resource path="res://resources/cartoon_cat/Fall (8).png" type="Texture" id=45]
 [ext_resource path="res://resources/cartoon_cat/Fall (2).png" type="Texture" id=46]
 [ext_resource path="res://resources/cartoon_cat/Fall (1).png" type="Texture" id=47]
-[ext_resource path="res://resources/Boat.png" type="Texture" id=48]
+[ext_resource path="res://resources/objects/Boat.png" type="Texture" id=48]
 [ext_resource path="res://icon.png" type="Texture" id=49]
 [ext_resource path="res://scripts/Boat.gd" type="Script" id=50]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=52]
@@ -153,7 +153,7 @@ void fragment(){
 shader = SubResource( 25 )
 shader_param/blue_tint = Color( 0.4, 0.905882, 1, 1 )
 shader_param/sprite_scale = Vector2( 7.5, 5.5 )
-shader_param/scale_x = 0.67
+shader_param/scale_x = 0.01
 
 [sub_resource type="Shader" id=34]
 code = "shader_type canvas_item;
@@ -218,6 +218,62 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
+1/name = "pixel_spritesheet.png 1"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 32, 16, 16, 16 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "pixel_spritesheet.png 2"
+2/texture = ExtResource( 2 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 32, 32, 16, 16 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "pixel_spritesheet.png 3"
+3/texture = ExtResource( 2 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 16, 16, 16 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+4/name = "pixel_spritesheet.png 4"
+4/texture = ExtResource( 2 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 16, 32, 16, 16 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 52 )
@@ -245,7 +301,7 @@ animation = "idle"
 [node name="PlayerCamera" type="Camera2D" parent="Player/AnimatedSprite"]
 position = Vector2( -3.8147e-06, -3.8147e-06 )
 current = true
-zoom = Vector2( 0.2, 0.2 )
+zoom = Vector2( 0.3, 0.3 )
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 drag_margin_bottom = 0.0
@@ -268,7 +324,7 @@ texture = ExtResource( 48 )
 polygon = PoolVector2Array( -403, 52, -362, 59, -352, 41, 221, 54, 325, 37, 431, -2, 482, -42, 460, -76, 402, -93, 199, -113, 91, -164, -140, -106, -353, -86, -426, -43, -475, -31, -471, -5, -419, -1 )
 
 [node name="BoatCamera" type="Camera2D" parent="Boat"]
-zoom = Vector2( 0.2, 0.2 )
+zoom = Vector2( 0.3, 0.3 )
 
 [node name="Water" type="Sprite" parent="."]
 material = SubResource( 26 )
@@ -290,7 +346,6 @@ wait_time = 0.25
 position = Vector2( 111, 482 )
 motion_scale = Vector2( 0.75, 1 )
 motion_offset = Vector2( 0, 1 )
-motion_mirroring = Vector2( 200, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 material = SubResource( 35 )

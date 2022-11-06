@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fishSpritesheet.png-b27d2da34c591dad35ccad27ab0c6835.stex"
+path="res://.import/blank_tile.png-0deb8c7eb9648da81f224e20f045ac66.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/fishSpritesheet.png"
-dest_files=[ "res://.import/fishSpritesheet.png-b27d2da34c591dad35ccad27ab0c6835.stex" ]
+source_file="res://resources/tiles/blank_tile.png"
+dest_files=[ "res://.import/blank_tile.png-0deb8c7eb9648da81f224e20f045ac66.stex" ]
 
 [params]
 

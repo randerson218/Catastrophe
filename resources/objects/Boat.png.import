@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tiles_spritesheet.png-1886d4183247eb4147f8895e9330e4d5.stex"
+path="res://.import/Boat.png-867399b532058ca66ec4bee383d769b9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/tiles_spritesheet.png"
-dest_files=[ "res://.import/tiles_spritesheet.png-1886d4183247eb4147f8895e9330e4d5.stex" ]
+source_file="res://resources/objects/Boat.png"
+dest_files=[ "res://.import/Boat.png-867399b532058ca66ec4bee383d769b9.stex" ]
 
 [params]
 
