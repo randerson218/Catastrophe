@@ -9,8 +9,6 @@ var water_right = 0
 func _ready():
 	randomize()
 	new_game()
-	#water_left = $Water.position.x/2 - ($Water.texture.get_width() * $Water.scale.x)
-	#water_right = $Water.position.x/2 + ($Water.texture.get_width() * $Water.scale.x)
 	
 	var edge_distance = ($Water.texture.get_width() * $Water.scale.x)/2
 	
@@ -25,6 +23,7 @@ func _process(delta):
 			fish.swimming_right = true
 		if fish.position.x >= water_right:
 			fish.queue_free()
+		
 			
 
 func game_over():
@@ -36,7 +35,6 @@ func new_game():
 	while fish_spawned < 50:
 		spawn_fish()
 		fish_spawned +=1
-	
 
 func spawn_fish():
 	# Create a new instance of the Mob scene.
@@ -74,3 +72,9 @@ func _on_StartTimer_timeout():
 	
 func _on_MobTimer_timeout():
 	spawn_fish()
+
+
+func _on_Hook_body_entered(body):
+	var hook = get_node("Hook/CollisionShape2D")
+	hook.call_deferred("set_disabled",true)
+	body.call_deferred("on_Hook",hook.global_position)

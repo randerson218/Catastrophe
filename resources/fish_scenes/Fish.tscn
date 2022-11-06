@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://resources/fishTile_074.png" type="Texture" id=1]
-[ext_resource path="res://resources/fish_scenes/Fish.gd" type="Script" id=2]
+[ext_resource path="res://resources/fish/fishTile_074.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Fish.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -30,3 +30,5 @@ shape = SubResource( 1 )
 frames = SubResource( 2 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_Fish_body_entered"]

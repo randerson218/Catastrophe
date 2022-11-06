@@ -17,6 +17,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
 func _process(delta):
+	
 	if !on_hook:
 		if swimming_right:
 			self.position.x += speed * delta
@@ -24,3 +25,8 @@ func _process(delta):
 		else:
 			self.position.x -= speed * delta
 			$AnimatedSprite.flip_h = true
+	
+func on_Hook(hookposition):
+	self.on_hook = true
+	self.position = hookposition
+
