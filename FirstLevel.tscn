@@ -1,62 +1,57 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=46 format=2]
 
-[ext_resource path="res://resources/cat/Walk (5).png" type="Texture" id=1]
-[ext_resource path="res://resources/tiles_spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://resources/pixel_cats/pipo-nekonin001.png" type="Texture" id=1]
+[ext_resource path="res://resources/pixel_spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=3]
-[ext_resource path="res://resources/SandyBottom.png" type="Texture" id=4]
-[ext_resource path="res://resources/cat/Walk (8).png" type="Texture" id=5]
-[ext_resource path="res://resources/cat/Walk (1).png" type="Texture" id=6]
-[ext_resource path="res://resources/cat/Walk (2).png" type="Texture" id=7]
-[ext_resource path="res://resources/cat/Walk (6).png" type="Texture" id=8]
-[ext_resource path="res://resources/cat/Walk (10).png" type="Texture" id=9]
-[ext_resource path="res://resources/cat/Walk (3).png" type="Texture" id=10]
-[ext_resource path="res://resources/cat/Walk (4).png" type="Texture" id=11]
-[ext_resource path="res://resources/cat/Walk (9).png" type="Texture" id=12]
-[ext_resource path="res://resources/cat/Walk (7).png" type="Texture" id=13]
-[ext_resource path="res://resources/cat/Idle (4).png" type="Texture" id=14]
-[ext_resource path="res://resources/cat/Idle (1).png" type="Texture" id=15]
-[ext_resource path="res://resources/cat/Jump (6).png" type="Texture" id=16]
-[ext_resource path="res://resources/cat/Idle (6).png" type="Texture" id=17]
-[ext_resource path="res://resources/cat/Idle (7).png" type="Texture" id=18]
-[ext_resource path="res://resources/cat/Jump (1).png" type="Texture" id=19]
-[ext_resource path="res://resources/cat/Jump (7).png" type="Texture" id=20]
-[ext_resource path="res://resources/cat/Jump (8).png" type="Texture" id=21]
-[ext_resource path="res://resources/cat/Idle (2).png" type="Texture" id=22]
-[ext_resource path="res://resources/cat/Idle (5).png" type="Texture" id=23]
-[ext_resource path="res://resources/cat/Idle (8).png" type="Texture" id=24]
-[ext_resource path="res://resources/cat/Jump (5).png" type="Texture" id=25]
-[ext_resource path="res://resources/cat/Jump (4).png" type="Texture" id=26]
-[ext_resource path="res://resources/cat/Jump (2).png" type="Texture" id=27]
-[ext_resource path="res://resources/cat/Jump (3).png" type="Texture" id=28]
-[ext_resource path="res://resources/cat/Idle (3).png" type="Texture" id=29]
-[ext_resource path="res://resources/cat/Idle (9).png" type="Texture" id=30]
-[ext_resource path="res://resources/cat/Idle (10).png" type="Texture" id=31]
-[ext_resource path="res://resources/cat/Run (3).png" type="Texture" id=32]
-[ext_resource path="res://resources/cat/Run (1).png" type="Texture" id=33]
-[ext_resource path="res://resources/cat/Run (2).png" type="Texture" id=34]
-[ext_resource path="res://resources/cat/Run (4).png" type="Texture" id=35]
-[ext_resource path="res://resources/cat/Run (6).png" type="Texture" id=36]
-[ext_resource path="res://resources/cat/Run (5).png" type="Texture" id=37]
-[ext_resource path="res://resources/cat/Run (7).png" type="Texture" id=38]
-[ext_resource path="res://resources/cat/Run (8).png" type="Texture" id=39]
-[ext_resource path="res://resources/cat/Fall (5).png" type="Texture" id=40]
-[ext_resource path="res://resources/cat/Fall (7).png" type="Texture" id=41]
-[ext_resource path="res://resources/cat/Fall (3).png" type="Texture" id=42]
-[ext_resource path="res://resources/cat/Fall (4).png" type="Texture" id=43]
-[ext_resource path="res://resources/cat/Fall (6).png" type="Texture" id=44]
-[ext_resource path="res://resources/cat/Fall (8).png" type="Texture" id=45]
-[ext_resource path="res://resources/cat/Fall (2).png" type="Texture" id=46]
-[ext_resource path="res://resources/cat/Fall (1).png" type="Texture" id=47]
+[ext_resource path="res://resources/cartoon_cat/Jump (6).png" type="Texture" id=16]
+[ext_resource path="res://resources/cartoon_cat/Jump (1).png" type="Texture" id=19]
+[ext_resource path="res://resources/cartoon_cat/Jump (7).png" type="Texture" id=20]
+[ext_resource path="res://resources/cartoon_cat/Jump (8).png" type="Texture" id=21]
+[ext_resource path="res://resources/cartoon_cat/Jump (5).png" type="Texture" id=25]
+[ext_resource path="res://resources/cartoon_cat/Jump (4).png" type="Texture" id=26]
+[ext_resource path="res://resources/cartoon_cat/Jump (2).png" type="Texture" id=27]
+[ext_resource path="res://resources/cartoon_cat/Jump (3).png" type="Texture" id=28]
+[ext_resource path="res://resources/cartoon_cat/Run (3).png" type="Texture" id=32]
+[ext_resource path="res://resources/cartoon_cat/Run (1).png" type="Texture" id=33]
+[ext_resource path="res://resources/cartoon_cat/Run (2).png" type="Texture" id=34]
+[ext_resource path="res://resources/cartoon_cat/Run (4).png" type="Texture" id=35]
+[ext_resource path="res://resources/cartoon_cat/Run (6).png" type="Texture" id=36]
+[ext_resource path="res://resources/cartoon_cat/Run (5).png" type="Texture" id=37]
+[ext_resource path="res://resources/cartoon_cat/Run (7).png" type="Texture" id=38]
+[ext_resource path="res://resources/cartoon_cat/Run (8).png" type="Texture" id=39]
+[ext_resource path="res://resources/cartoon_cat/Fall (5).png" type="Texture" id=40]
+[ext_resource path="res://resources/cartoon_cat/Fall (7).png" type="Texture" id=41]
+[ext_resource path="res://resources/cartoon_cat/Fall (3).png" type="Texture" id=42]
+[ext_resource path="res://resources/cartoon_cat/Fall (4).png" type="Texture" id=43]
+[ext_resource path="res://resources/cartoon_cat/Fall (6).png" type="Texture" id=44]
+[ext_resource path="res://resources/cartoon_cat/Fall (8).png" type="Texture" id=45]
+[ext_resource path="res://resources/cartoon_cat/Fall (2).png" type="Texture" id=46]
+[ext_resource path="res://resources/cartoon_cat/Fall (1).png" type="Texture" id=47]
 [ext_resource path="res://resources/Boat.png" type="Texture" id=48]
 [ext_resource path="res://icon.png" type="Texture" id=49]
 [ext_resource path="res://scripts/Boat.gd" type="Script" id=50]
-[ext_resource path="res://resources/blank_tile.png" type="Texture" id=51]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=52]
 [ext_resource path="res://resources/fish_scenes/Fish.tscn" type="PackedScene" id=53]
 [ext_resource path="res://resources/background/forestbg.png" type="Texture" id=54]
 
 [sub_resource type="RectangleShape2D" id=24]
-extents = Vector2( 150, 212.5 )
+extents = Vector2( 50, 60 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 64, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
@@ -65,7 +60,7 @@ animations = [ {
 "name": "fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 22 ), ExtResource( 29 ), ExtResource( 14 ), ExtResource( 23 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 24 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"frames": [ SubResource( 31 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
@@ -80,304 +75,11 @@ animations = [ {
 "name": "run",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 1 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 5 ), ExtResource( 12 ), ExtResource( 9 ) ],
+"frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
 } ]
-
-[sub_resource type="ConvexPolygonShape2D" id=11]
-points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
-
-[sub_resource type="ConvexPolygonShape2D" id=12]
-points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
-
-[sub_resource type="ConvexPolygonShape2D" id=21]
-points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
-
-[sub_resource type="ConvexPolygonShape2D" id=23]
-points = PoolVector2Array( 70, 69.9688, 0, 69.9688, 0, 48.6563, 70, 48.6563 )
-
-[sub_resource type="ConvexPolygonShape2D" id=27]
-points = PoolVector2Array( 66, 0, 70, 0, 70, 70, 66, 70 )
-
-[sub_resource type="ConvexPolygonShape2D" id=13]
-points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
-
-[sub_resource type="ConvexPolygonShape2D" id=14]
-points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
-
-[sub_resource type="ConvexPolygonShape2D" id=15]
-points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
-
-[sub_resource type="ConvexPolygonShape2D" id=16]
-points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
-
-[sub_resource type="ConvexPolygonShape2D" id=22]
-points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
-
-[sub_resource type="TileSet" id=10]
-0/name = "tiles_spritesheet.png 0"
-0/texture = ExtResource( 2 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 576, 864, 70, 70 )
-0/tile_mode = 1
-0/autotile/bitmask_mode = 0
-0/autotile/bitmask_flags = [  ]
-0/autotile/icon_coordinate = Vector2( 0, 0 )
-0/autotile/tile_size = Vector2( 70, 70 )
-0/autotile/spacing = 0
-0/autotile/occluder_map = [  ]
-0/autotile/navpoly_map = [  ]
-0/autotile/priority_map = [  ]
-0/autotile/z_index_map = [  ]
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 11 )
-0/shape_one_way = false
-0/shape_one_way_margin = 1.0
-0/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 11 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-0/z_index = 0
-1/name = "tiles_spritesheet.png 1"
-1/texture = ExtResource( 2 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 504, 576, 70, 70 )
-1/tile_mode = 0
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape = SubResource( 12 )
-1/shape_one_way = false
-1/shape_one_way_margin = 1.0
-1/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 12 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-1/z_index = 0
-2/name = "tiles_spritesheet.png 2"
-2/texture = ExtResource( 2 )
-2/tex_offset = Vector2( 0, 0 )
-2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 504, 648, 70, 70 )
-2/tile_mode = 0
-2/occluder_offset = Vector2( 0, 0 )
-2/navigation_offset = Vector2( 0, 0 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape = SubResource( 13 )
-2/shape_one_way = false
-2/shape_one_way_margin = 1.0
-2/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 13 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-2/z_index = 0
-3/name = "tiles_spritesheet.png 3"
-3/texture = ExtResource( 2 )
-3/tex_offset = Vector2( 0, 0 )
-3/modulate = Color( 1, 1, 1, 1 )
-3/region = Rect2( 576, 504, 70, 70 )
-3/tile_mode = 0
-3/occluder_offset = Vector2( 0, 0 )
-3/navigation_offset = Vector2( 0, 0 )
-3/shape_offset = Vector2( 0, 0 )
-3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-3/shape = SubResource( 14 )
-3/shape_one_way = false
-3/shape_one_way_margin = 1.0
-3/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 14 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-3/z_index = 0
-4/name = "tiles_spritesheet.png 4"
-4/texture = ExtResource( 2 )
-4/tex_offset = Vector2( 0, 0 )
-4/modulate = Color( 1, 1, 1, 1 )
-4/region = Rect2( 576, 576, 70, 70 )
-4/tile_mode = 0
-4/occluder_offset = Vector2( 0, 0 )
-4/navigation_offset = Vector2( 0, 0 )
-4/shape_offset = Vector2( 0, 0 )
-4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-4/shape = SubResource( 15 )
-4/shape_one_way = false
-4/shape_one_way_margin = 1.0
-4/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 15 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-4/z_index = 0
-5/name = "tiles_spritesheet.png 5"
-5/texture = ExtResource( 2 )
-5/tex_offset = Vector2( 0, 0 )
-5/modulate = Color( 1, 1, 1, 1 )
-5/region = Rect2( 576, 648, 70, 70 )
-5/tile_mode = 0
-5/occluder_offset = Vector2( 0, 0 )
-5/navigation_offset = Vector2( 0, 0 )
-5/shape_offset = Vector2( 0, 0 )
-5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-5/shape = SubResource( 16 )
-5/shape_one_way = false
-5/shape_one_way_margin = 1.0
-5/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 16 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-5/z_index = 0
-7/name = "tiles_spritesheet.png 7"
-7/texture = ExtResource( 2 )
-7/tex_offset = Vector2( 0, 0 )
-7/modulate = Color( 1, 1, 1, 1 )
-7/region = Rect2( 432, 576, 70, 70 )
-7/tile_mode = 0
-7/occluder_offset = Vector2( 0, 0 )
-7/navigation_offset = Vector2( 0, 0 )
-7/shape_offset = Vector2( 0, 0 )
-7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-7/shape_one_way = false
-7/shape_one_way_margin = 0.0
-7/shapes = [  ]
-7/z_index = 0
-8/name = "tiles_spritesheet.png 8"
-8/texture = ExtResource( 2 )
-8/tex_offset = Vector2( 0, 0 )
-8/modulate = Color( 1, 1, 1, 1 )
-8/region = Rect2( 432, 648, 70, 70 )
-8/tile_mode = 0
-8/occluder_offset = Vector2( 0, 0 )
-8/navigation_offset = Vector2( 0, 0 )
-8/shape_offset = Vector2( 0, 0 )
-8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-8/shape_one_way = false
-8/shape_one_way_margin = 0.0
-8/shapes = [  ]
-8/z_index = 0
-9/name = "tiles_spritesheet.png 9"
-9/texture = ExtResource( 2 )
-9/tex_offset = Vector2( 0, 0 )
-9/modulate = Color( 1, 1, 1, 1 )
-9/region = Rect2( 0, 792, 70, 70 )
-9/tile_mode = 0
-9/occluder_offset = Vector2( 0, 0 )
-9/navigation_offset = Vector2( 0, 0 )
-9/shape_offset = Vector2( 0, 0 )
-9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-9/shape = SubResource( 22 )
-9/shape_one_way = false
-9/shape_one_way_margin = 1.0
-9/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 22 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-9/z_index = 0
-10/name = "tiles_spritesheet.png 10"
-10/texture = ExtResource( 2 )
-10/tex_offset = Vector2( 0, 0 )
-10/modulate = Color( 1, 1, 1, 1 )
-10/region = Rect2( 0, 864, 70, 70 )
-10/tile_mode = 0
-10/occluder_offset = Vector2( 0, 0 )
-10/navigation_offset = Vector2( 0, 0 )
-10/shape_offset = Vector2( 0, 0 )
-10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-10/shape = SubResource( 21 )
-10/shape_one_way = false
-10/shape_one_way_margin = 1.0
-10/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 21 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-10/z_index = 0
-11/name = "tiles_spritesheet.png 11"
-11/texture = ExtResource( 2 )
-11/tex_offset = Vector2( 0, 0 )
-11/modulate = Color( 1, 1, 1, 1 )
-11/region = Rect2( 504, 216, 70, 70 )
-11/tile_mode = 0
-11/occluder_offset = Vector2( 0, 0 )
-11/navigation_offset = Vector2( 0, 0 )
-11/shape_offset = Vector2( 0, 0 )
-11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-11/shape_one_way = false
-11/shape_one_way_margin = 0.0
-11/shapes = [  ]
-11/z_index = 0
-12/name = "SandyBottom.png 12"
-12/texture = ExtResource( 4 )
-12/tex_offset = Vector2( 0, 0 )
-12/modulate = Color( 1, 1, 1, 1 )
-12/region = Rect2( 0, 0, 70, 70 )
-12/tile_mode = 0
-12/occluder_offset = Vector2( 0, 0 )
-12/navigation_offset = Vector2( 0, 0 )
-12/shape_offset = Vector2( 0, 0 )
-12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-12/shape = SubResource( 23 )
-12/shape_one_way = false
-12/shape_one_way_margin = 1.0
-12/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 23 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-12/z_index = 0
-13/name = "blank_tile.png 13"
-13/texture = ExtResource( 51 )
-13/tex_offset = Vector2( 0, 0 )
-13/modulate = Color( 1, 1, 1, 1 )
-13/region = Rect2( 0, 0, 70, 70 )
-13/tile_mode = 0
-13/occluder_offset = Vector2( 0, 0 )
-13/navigation_offset = Vector2( 0, 0 )
-13/shape_offset = Vector2( 0, 0 )
-13/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-13/shape = SubResource( 27 )
-13/shape_one_way = false
-13/shape_one_way_margin = 1.0
-13/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 27 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-13/z_index = 0
 
 [sub_resource type="Shader" id=25]
 code = "shader_type canvas_item;
@@ -453,10 +155,69 @@ shader_param/blue_tint = Color( 0.4, 0.905882, 1, 1 )
 shader_param/sprite_scale = Vector2( 7.5, 5.5 )
 shader_param/scale_x = 0.67
 
-[sub_resource type="Curve2D" id=28]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 560, 80, 0, 0, 0, 0, 1544, 88, 0, 0, 0, 0, 1544, 480, 0, 0, 0, 0, 560, 480, 0, 0, 0, 0, 560, 80 )
+[sub_resource type="Shader" id=34]
+code = "shader_type canvas_item;
+
+uniform float h: hint_range(0,1) = 1;
+uniform float s: hint_range(0,1) = 1;
+uniform float v: hint_range(0,1) = 1;
+
+vec3 rgb2hsv(vec3 c) {
+    vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+    vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+
+    float d = q.x - min(q.w, q.y);
+    float e = 1.0e-10;
+    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
 }
+
+vec3 hsv2rgb(vec3 c) {
+    vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+
+void fragment() {
+	vec4 col = texture(TEXTURE, UV);
+	
+	col.rgb = hsv2rgb(rgb2hsv(col.rgb) * vec3(h, s, v));
+	
+	COLOR = col;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=35]
+shader = SubResource( 34 )
+shader_param/h = 1.0
+shader_param/s = 0.772
+shader_param/v = 0.728
+
+[sub_resource type="ConvexPolygonShape2D" id=33]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="TileSet" id=32]
+0/name = "pixel_spritesheet.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 32, 0, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 33 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 33 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 52 )
@@ -470,37 +231,29 @@ position = Vector2( 40, 16 )
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2( -5, 0 )
+position = Vector2( -14, -28 )
 scale = Vector2( 0.2, 0.2 )
 shape = SubResource( 24 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
-scale = Vector2( 0.2, 0.2 )
+position = Vector2( -16, -31 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 8
 
 [node name="PlayerCamera" type="Camera2D" parent="Player/AnimatedSprite"]
-position = Vector2( 2.63636, -83.7273 )
+position = Vector2( -3.8147e-06, -3.8147e-06 )
 current = true
+zoom = Vector2( 0.2, 0.2 )
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 drag_margin_bottom = 0.0
 editor_draw_drag_margin = true
 
-[node name="Map" type="TileMap" parent="."]
-position = Vector2( -64, -488 )
-z_index = -1
-tile_set = SubResource( 10 )
-cell_size = Vector2( 69, 69 )
-format = 1
-tile_data = PoolIntArray( 262152, 13, 0, 327688, 13, 0, 393224, 13, 0, 458760, 13, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 786432, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 851968, 0, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0 )
-
 [node name="Boat" type="KinematicBody2D" parent="."]
-position = Vector2( 777, 61 )
-scale = Vector2( 0.440005, 0.440005 )
+position = Vector2( 176, 8.00001 )
+scale = Vector2( 0.1, 0.1 )
 z_index = -1
 script = ExtResource( 50 )
 __meta__ = {
@@ -515,20 +268,14 @@ texture = ExtResource( 48 )
 polygon = PoolVector2Array( -403, 52, -362, 59, -352, 41, 221, 54, 325, 37, 431, -2, 482, -42, 460, -76, 402, -93, 199, -113, 91, -164, -140, -106, -353, -86, -426, -43, -475, -31, -471, -5, -419, -1 )
 
 [node name="BoatCamera" type="Camera2D" parent="Boat"]
+zoom = Vector2( 0.2, 0.2 )
 
 [node name="Water" type="Sprite" parent="."]
 material = SubResource( 26 )
-position = Vector2( 1041, 273.5 )
+position = Vector2( 632, 208 )
 scale = Vector2( 15.6875, 6.39062 )
 z_index = -2
 texture = ExtResource( 49 )
-
-[node name="FishPath" type="Path2D" parent="."]
-curve = SubResource( 28 )
-
-[node name="FishSpawnLocation" type="PathFollow2D" parent="FishPath"]
-position = Vector2( 560, 80 )
-rotation = 0.00812998
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -538,18 +285,25 @@ one_shot = true
 wait_time = 0.25
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scroll_limit_end = Vector2( 0, 270 )
-scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 111, 482 )
 motion_scale = Vector2( 0.75, 1 )
 motion_offset = Vector2( 0, 1 )
-motion_mirroring = Vector2( 7535, 0 )
+motion_mirroring = Vector2( 200, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 0, -155 )
-scale = Vector2( 5, 5 )
+material = SubResource( 35 )
+position = Vector2( 390.76, -555.594 )
+scale = Vector2( 1.67205, 1.67205 )
+z_index = -5
 texture = ExtResource( 54 )
+
+[node name="Map" type="TileMap" parent="."]
+tile_set = SubResource( 32 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0 )
 
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]

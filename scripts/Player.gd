@@ -52,14 +52,14 @@ func change_animation():
 	
 	if velocity.y < 0: # negative Y is up
 		if velocity.x != 0:
-			$AnimatedSprite.play("jump")
+			$AnimatedSprite.play("idle")
 		else:
 			$AnimatedSprite.play("idle")
 	elif velocity.y > 0:
-		$AnimatedSprite.play("fall")
+		$AnimatedSprite.play("idle")
 	else:
 		if velocity.x != 0:
-			$AnimatedSprite.play("run")
+			$AnimatedSprite.play("walk")
 		else:
 			$AnimatedSprite.play("idle")	
 	
