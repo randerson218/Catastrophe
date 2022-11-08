@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-export var speed = 400 # How fast the player will move (pixels/sec).
+export var speed = 150 # How fast the player will move (pixels/sec).
 export var gravity := 2000
 
 var velocity := Vector2.ZERO
@@ -48,15 +48,16 @@ func change_animation():
 		$CollisionPolygon2D.scale.x *= -1
 
 func toggle_in_boat():
-	if Input.is_action_just_pressed("interact_key") and player.in_boat == false:
+	if Input.is_action_just_pressed("boat_key") and player.in_boat == false:
 		player.in_boat = true
 		$BoatCamera.make_current()
 		player.position = position
+		
 		#disable player collision while in boat and enable boat collision
 		get_node("../Player/CollisionShape2D").disabled = true
 		$CollisionPolygon2D.disabled = false
 		
-	elif Input.is_action_just_pressed("interact_key") and player.in_boat == true:
+	elif Input.is_action_just_pressed("boat_key") and player.in_boat == true:
 		#change player to being in boat and make boat camera active
 		player.in_boat = false
 		get_node("../Player/AnimatedSprite/PlayerCamera").make_current()

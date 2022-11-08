@@ -1,9 +1,10 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://resources/pixel_cats/pipo-nekonin001.png" type="Texture" id=1]
 [ext_resource path="res://resources/objects/hook.png" type="Texture" id=2]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=3]
 [ext_resource path="res://ForestMap.tres" type="TileSet" id=4]
+[ext_resource path="res://Hook.gd" type="Script" id=5]
 [ext_resource path="res://resources/cartoon_cat/Jump (6).png" type="Texture" id=16]
 [ext_resource path="res://resources/cartoon_cat/Jump (1).png" type="Texture" id=19]
 [ext_resource path="res://resources/cartoon_cat/Jump (7).png" type="Texture" id=20]
@@ -222,6 +223,7 @@ frames = SubResource( 8 )
 animation = "idle"
 
 [node name="PlayerCamera" type="Camera2D" parent="Player/AnimatedSprite"]
+visible = false
 position = Vector2( -3.8147e-06, -3.8147e-06 )
 current = true
 zoom = Vector2( 0.3, 0.3 )
@@ -281,11 +283,12 @@ z_index = -10
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 1, 0, 16, 1, 0, 17, 1, 0, 18, 1, 0, 19, 1, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, 31, 0, 0, 32, 0, 0, 33, 0, 0, 65544, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 1, 0, 65551, 1, 0, 65552, 2, 0, 65553, 2, 0, 65554, 2, 0, 65555, 2, 0, 65556, 1, 0, 65557, 1, 0, 65558, 1, 0, 65559, 1, 0, 65560, 1, 0, 65561, 1, 0, 65562, 1, 0, 131080, 2, 0, 131081, 2, 0, 131082, 2, 0, 131083, 2, 0, 131084, 2, 0, 131085, 2, 0, 131086, 2, 0, 131087, 2, 0, 131088, 2, 0, 131089, 2, 0, 131090, 2, 0, 131091, 2, 0, 131092, 2, 0, 131093, 2, 0, 131094, 2, 0, 131095, 2, 0, 196615, 4, 0, 196616, 4, 0, 196617, 3, 0, 196618, 3, 0, 196619, 3, 0, 196620, 3, 0, 196621, 3, 0, 196622, 3, 0, 196623, 3, 0, 196624, 3, 0, 196625, 3, 0, 196626, 3, 0, 196627, 3, 0, 262150, 4, 0, 262151, 4, 0, 262152, 4, 0, 262153, 4, 0, 262154, 4, 0, 262155, 4, 0, 262156, 4, 0, 262157, 4, 0, 262158, 4, 0, 262159, 4, 0, 262160, 4, 0, 262161, 4, 0, 262162, 4, 0, 262163, 4, 0, 262164, 4, 0 )
+tile_data = PoolIntArray( 196615, 4, 0, 262150, 4, 0, 262151, 4, 0 )
 
 [node name="Hook" type="Area2D" parent="."]
 position = Vector2( 176, 32 )
 z_index = -10
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -294,6 +297,7 @@ __meta__ = {
 shape = SubResource( 36 )
 
 [node name="Sprite" type="Sprite" parent="Hook"]
+light_mask = 0
 scale = Vector2( 0.025, 0.025 )
 texture = ExtResource( 2 )
 
