@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Catastrophe"
-run/main_scene="res://FirstLevel.tscn"
+run/main_scene="res://scenes/FirstLevel.tscn"
 config/icon="res://icon.png"
 
 [gui]
