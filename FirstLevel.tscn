@@ -285,6 +285,7 @@ tile_data = PoolIntArray( 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0,
 
 [node name="Hook" type="Area2D" parent="."]
 position = Vector2( 176, 32 )
+z_index = -10
 __meta__ = {
 "_edit_group_": true
 }
