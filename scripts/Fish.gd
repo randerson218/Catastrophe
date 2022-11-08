@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-export var speed = 50
+export var speed = 25
 export var swimming_right = true
 
 var on_hook=false

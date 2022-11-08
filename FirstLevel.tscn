@@ -196,7 +196,7 @@ shader_param/v = 0.728
 
 [sub_resource type="CapsuleShape2D" id=36]
 radius = 8.0
-height = 16.0
+height = 0.0
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 52 )
@@ -256,13 +256,6 @@ scale = Vector2( 15.6875, 6.39062 )
 z_index = -2
 texture = ExtResource( 49 )
 
-[node name="StartTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
-[node name="MobTimer" type="Timer" parent="."]
-wait_time = 0.25
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -300,9 +293,7 @@ __meta__ = {
 shape = SubResource( 36 )
 
 [node name="Sprite" type="Sprite" parent="Hook"]
-scale = Vector2( 0.05, 0.05 )
+scale = Vector2( 0.025, 0.025 )
 texture = ExtResource( 2 )
 
-[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
-[connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="body_entered" from="Hook" to="." method="_on_Hook_body_entered"]
