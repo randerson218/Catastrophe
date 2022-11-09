@@ -4,7 +4,7 @@ export(PackedScene) var fish_scene
 
 export var spawn_height_offset = 16
 export var spawn_left_offset = 16
-export var MAX_FISH = 2000
+export var MAX_FISH = 100
 
 var init_fish = int(MAX_FISH/2)
 var random = RandomNumberGenerator.new()

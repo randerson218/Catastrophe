@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-export var speed = 400 # How fast the player will move (pixels/sec).
+export var speed = 150 # How fast the player will move (pixels/sec).
 export var gravity := 2000
 export var jump_speed := 550
 
@@ -31,8 +31,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("move_left"):
 			velocity.x -= speed
 
-	# apply gravity
-	# player always has downward velocity
+	#turn off gravity for player when in boat
 	if not in_boat:
 		velocity.y += gravity * delta
 
