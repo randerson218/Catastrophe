@@ -309,7 +309,6 @@ frames = SubResource( 8 )
 animation = "idle"
 
 [node name="PlayerCamera" type="Camera2D" parent="Player/AnimatedSprite"]
-visible = false
 position = Vector2( -3.8147e-06, -3.8147e-06 )
 current = true
 zoom = Vector2( 0.3, 0.3 )

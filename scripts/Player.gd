@@ -6,6 +6,7 @@ export var gravity := 2000
 export var jump_speed := 550
 
 var in_boat = false
+var in_control = true
 var velocity := Vector2.ZERO
 var screen_size # Size of the game window.
 
@@ -22,12 +23,13 @@ func _process(delta):
 func _physics_process(delta: float) -> void:
 	# reset horizontal velocity
 	velocity.x = 0
-
-	# set horizontal velocity
-	if Input.is_action_pressed("move_right"):
-		velocity.x += speed
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= speed
+	
+	if in_control and !in_boat:
+		# set horizontal velocity
+		if Input.is_action_pressed("move_right"):
+			velocity.x += speed
+		if Input.is_action_pressed("move_left"):
+			velocity.x -= speed
 
 	# apply gravity
 	# player always has downward velocity

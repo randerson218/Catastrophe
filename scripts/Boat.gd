@@ -25,12 +25,15 @@ func _physics_process(delta: float) -> void:
 	
 	# reset horizontal velocity
 	velocity.x = 0
-
-	# set horizontal velocity
-	if Input.is_action_pressed("move_right"):
-		velocity.x += speed
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= speed
+	
+	if player.in_control and player.in_boat:
+		player.position = self.position 
+		# set horizontal velocity
+		if Input.is_action_pressed("move_right"):
+			velocity.x += speed
+		if Input.is_action_pressed("move_left"):
+			velocity.x -= speed
+		
 
 	# actually move the player
 	velocity = move_and_slide(velocity, Vector2.UP)
@@ -45,13 +48,14 @@ func change_animation():
 		
 	elif velocity.x < 0:
 		$Sprite.flip_h = true
-		$CollisionPolygon2D.scale.x *= -1
+		if $CollisionPolygon2D.scale.x > 0:
+			$CollisionPolygon2D.scale.x *= -1
 
 func toggle_in_boat():
 	if Input.is_action_just_pressed("boat_key") and player.in_boat == false:
 		player.in_boat = true
 		$BoatCamera.make_current()
-		player.position = position
+		player.position = self.position
 		
 		#disable player collision while in boat and enable boat collision
 		get_node("../Player/CollisionShape2D").disabled = true
