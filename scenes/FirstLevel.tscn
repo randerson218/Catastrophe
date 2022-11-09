@@ -413,13 +413,13 @@ texture = ExtResource( 5 )
 
 [node name="PlayerMap" type="CanvasLayer" parent="."]
 
-[node name="BoatEntrance" type="Area2D" parent="."]
+[node name="Dock" type="Area2D" parent="."]
 position = Vector2( 118, -10 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BoatEntrance"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dock"]
 position = Vector2( -4.5, -8 )
 shape = SubResource( 39 )
 
