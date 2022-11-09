@@ -12,6 +12,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("interact_key"):
 		hook_cast = true
+		get_node("HookCamera").make_current()
 	
 	if Input.is_action_pressed("up_key"):
 		self.position.y -= reel_speed * delta
