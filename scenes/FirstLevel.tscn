@@ -289,6 +289,9 @@ __meta__ = {
 }
 fish_scene = ExtResource( 35 )
 
+[node name="GUI" parent="." instance=ExtResource( 36 )]
+visible = false
+
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 40, 16 )
 script = ExtResource( 3 )
@@ -384,6 +387,6 @@ light_mask = 0
 scale = Vector2( 0.025, 0.025 )
 texture = ExtResource( 5 )
 
-[node name="GUI" parent="." instance=ExtResource( 36 )]
+[node name="PlayerMap" type="CanvasLayer" parent="."]
 
 [connection signal="body_entered" from="Hook" to="." method="_on_Hook_body_entered"]

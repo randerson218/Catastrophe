@@ -26,22 +26,13 @@ anchor_bottom = 1.0
 script = ExtResource( 3 )
 
 [node name="Background" type="ColorRect" parent="."]
-anchor_left = 0.0703125
-anchor_top = -0.04
-anchor_right = 1.07031
-anchor_bottom = 0.96
+anchor_right = 1.0
+anchor_bottom = 1.0
 color = Color( 0.12549, 0.12549, 0.12549, 0.627451 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 72.0
-margin_top = -24.0
-margin_right = 72.0
-margin_bottom = -24.0
 rect_min_size = Vector2( 200, 125 )
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer"]
