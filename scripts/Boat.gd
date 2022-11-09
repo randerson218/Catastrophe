@@ -6,6 +6,8 @@ export var gravity := 2000
 
 var velocity := Vector2.ZERO
 var screen_size # Size of the game window.
+
+
 onready var player = get_node("../Player")
 
 
@@ -47,15 +49,17 @@ func change_animation():
 		$Sprite.flip_h = true
 
 func toggle_in_boat():
-	if Input.is_action_just_pressed("boat_key") and player.in_boat == false:
+	
+	
+	if Input.is_action_just_pressed("boat_key") and !player.in_boat:
 		player.in_boat = true
 		get_node("../Camera").target_node = self
 
-	elif Input.is_action_just_pressed("boat_key") and player.in_boat == true:
+	elif Input.is_action_just_pressed("boat_key") and player.in_boat:
 		#change player to being in boat and make boat camera active
 		player.in_boat = false
 		get_node("../Camera").target_node = get_node("../Player")
-		player.position = Vector2(0,0)
+		player.position = get_node("../BoatExit").position - Vector2(-16,-16)
 
 func start(pos):
 	position = pos

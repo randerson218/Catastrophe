@@ -1,37 +1,13 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://scripts/Hook.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Boat.gd" type="Script" id=2]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=3]
-[ext_resource path="res://resources/cartoon_cat/Jump (6).png" type="Texture" id=4]
 [ext_resource path="res://resources/objects/hook.png" type="Texture" id=5]
 [ext_resource path="res://resources/pixel_cats/pipo-nekonin001.png" type="Texture" id=6]
-[ext_resource path="res://resources/cartoon_cat/Run (7).png" type="Texture" id=7]
-[ext_resource path="res://resources/cartoon_cat/Run (3).png" type="Texture" id=8]
-[ext_resource path="res://resources/cartoon_cat/Run (8).png" type="Texture" id=9]
-[ext_resource path="res://resources/cartoon_cat/Jump (1).png" type="Texture" id=10]
-[ext_resource path="res://resources/cartoon_cat/Jump (7).png" type="Texture" id=11]
-[ext_resource path="res://resources/cartoon_cat/Run (6).png" type="Texture" id=12]
-[ext_resource path="res://resources/cartoon_cat/Fall (7).png" type="Texture" id=13]
-[ext_resource path="res://resources/cartoon_cat/Run (1).png" type="Texture" id=14]
-[ext_resource path="res://resources/cartoon_cat/Fall (5).png" type="Texture" id=15]
-[ext_resource path="res://resources/cartoon_cat/Jump (5).png" type="Texture" id=16]
-[ext_resource path="res://resources/cartoon_cat/Jump (4).png" type="Texture" id=17]
-[ext_resource path="res://resources/cartoon_cat/Jump (2).png" type="Texture" id=18]
-[ext_resource path="res://resources/cartoon_cat/Jump (8).png" type="Texture" id=19]
-[ext_resource path="res://resources/cartoon_cat/Run (2).png" type="Texture" id=20]
-[ext_resource path="res://resources/cartoon_cat/Jump (3).png" type="Texture" id=21]
-[ext_resource path="res://resources/cartoon_cat/Run (4).png" type="Texture" id=22]
-[ext_resource path="res://resources/cartoon_cat/Run (5).png" type="Texture" id=23]
-[ext_resource path="res://resources/cartoon_cat/Fall (8).png" type="Texture" id=24]
 [ext_resource path="res://icon.png" type="Texture" id=25]
-[ext_resource path="res://resources/cartoon_cat/Fall (2).png" type="Texture" id=26]
-[ext_resource path="res://resources/cartoon_cat/Fall (1).png" type="Texture" id=27]
 [ext_resource path="res://resources/background/forestbg.png" type="Texture" id=28]
-[ext_resource path="res://resources/cartoon_cat/Fall (6).png" type="Texture" id=29]
 [ext_resource path="res://resources/objects/Boat.png" type="Texture" id=30]
-[ext_resource path="res://resources/cartoon_cat/Fall (3).png" type="Texture" id=31]
-[ext_resource path="res://resources/cartoon_cat/Fall (4).png" type="Texture" id=32]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=33]
 [ext_resource path="res://resources/tiles/pixel_spritesheet.png" type="Texture" id=34]
 [ext_resource path="res://scenes/fish_scenes/Fish.tscn" type="PackedScene" id=35]
@@ -59,24 +35,9 @@ region = Rect2( 64, 64, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ ExtResource( 27 ), ExtResource( 26 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 15 ), ExtResource( 29 ), ExtResource( 13 ), ExtResource( 24 ) ],
-"loop": true,
-"name": "fall",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 31 ) ],
 "loop": true,
 "name": "idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 4 ), ExtResource( 11 ), ExtResource( 19 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ), ExtResource( 20 ), ExtResource( 8 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 12 ), ExtResource( 7 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "run",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
@@ -351,6 +312,9 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 radius = 8.0
 height = 0.0
 
+[sub_resource type="RectangleShape2D" id=39]
+extents = Vector2( 14.5, 18 )
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 33 )
 __meta__ = {
@@ -448,5 +412,18 @@ scale = Vector2( 0.025, 0.025 )
 texture = ExtResource( 5 )
 
 [node name="PlayerMap" type="CanvasLayer" parent="."]
+
+[node name="BoatEntrance" type="Area2D" parent="."]
+position = Vector2( 118, -10 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoatEntrance"]
+position = Vector2( -4.5, -8 )
+shape = SubResource( 39 )
+
+[node name="BoatExit" type="Position2D" parent="."]
+position = Vector2( 113, -2 )
 
 [connection signal="body_entered" from="Hook" to="." method="_on_Hook_body_entered"]
