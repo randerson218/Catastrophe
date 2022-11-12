@@ -521,6 +521,10 @@ light_mask = 0
 scale = Vector2( 0.025, 0.025 )
 texture = ExtResource( 5 )
 
+[node name="Line2D" type="Line2D" parent="Hook"]
+width = 1.0
+default_color = Color( 1, 1, 1, 1 )
+
 [node name="PlayerMap" type="CanvasLayer" parent="."]
 
 [node name="Dock" type="Area2D" parent="."]
