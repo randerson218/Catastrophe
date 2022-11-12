@@ -11,16 +11,16 @@ func _ready():
 	$CollisionShape2D.disabled = true
 
 func _process(delta):
+	
 	if Input.is_action_just_pressed("interact_key"):
 		hook_cast = true
 		get_node("../Camera").target_node = self
 			
 	if Input.is_action_pressed("up_key"):
 		self.position.y -= reel_speed * delta
-		update()
+		
 	if Input.is_action_pressed("down_key"):
 		self.position.y += reel_speed * delta
-		update()
 	
 	if get_node("../Player").in_boat and hook_cast:
 		$Sprite.visible = true
@@ -31,8 +31,9 @@ func _process(delta):
 		if body.is_in_group("fish") and !fish_on_hook:
 			body.on_hook = true
 			fish_on_hook = true
-	
-
+	#update line for fishing line 
+	update()
 		
 func _draw():
-	draw_line(Vector2(0,-5),Vector2(0,-(self.position.y + get_node("../Boat").position.y)),Color(255.0,255.0,255.0),1.0)
+	if hook_cast:
+		draw_line(Vector2(0,-5),Vector2(0,-(self.position.y + get_node("../Boat").position.y)),Color(255.0,255.0,255.0),1.0)
