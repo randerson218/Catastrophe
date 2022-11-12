@@ -25,8 +25,9 @@ func _process(delta):
 		else:
 			self.position.x -= speed * delta
 			$AnimatedSprite.flip_h = true
+	else:
+		on_Hook(get_node("../Hook").position)
 	
 func on_Hook(hookposition):
 	self.on_hook = true
 	self.position = hookposition
-

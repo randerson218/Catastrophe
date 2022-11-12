@@ -539,5 +539,3 @@ shape = SubResource( 39 )
 
 [node name="BoatExit" type="Position2D" parent="."]
 position = Vector2( 113, -2 )
-
-[connection signal="body_entered" from="Hook" to="." method="_on_Hook_body_entered"]

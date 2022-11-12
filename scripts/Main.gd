@@ -82,10 +82,3 @@ func spawn_fish():
 		
 		# Spawn the mob by adding it to the Main scene.
 		add_child(mob)
-
-
-func _on_Hook_body_entered(body):
-	if body.is_in_group("fish"):
-		var hook = get_node("Hook/CollisionShape2D")
-		hook.call_deferred("set_disabled",true)
-		body.call_deferred("on_Hook",hook.global_position)

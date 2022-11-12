@@ -3,6 +3,7 @@ extends Area2D
 export var reel_speed = 50
 
 var hook_cast = false
+var fish_on_hook = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,8 +14,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("interact_key"):
 		hook_cast = true
 		get_node("../Camera").target_node = self
-		
-		draw_line(self.position,get_node("../Boat").position,Color(255.0,255.0,255.0),5.0)
 			
 	if Input.is_action_pressed("up_key"):
 		self.position.y -= reel_speed * delta
@@ -28,5 +27,12 @@ func _process(delta):
 		$CollisionShape2D.disabled = false
 		self.position.x = get_node("../Boat").position.x
 	
+	for body in get_overlapping_bodies():
+		if body.is_in_group("fish") and !fish_on_hook:
+			body.on_hook = true
+			fish_on_hook = true
+	
+
+		
 func _draw():
 	draw_line(Vector2(0,-5),Vector2(0,-(self.position.y + get_node("../Boat").position.y)),Color(255.0,255.0,255.0),1.0)
