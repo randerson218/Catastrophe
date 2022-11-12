@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://resources/fish/shark.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Fish.gd" type="Script" id=2]
+
+[sub_resource type="Shader" id=2]
+code = "/*
+Shader from Godot Shaders - the free shader library.
+godotshaders.com/shader/pixelate
+
+This shader is under CC0 license. Feel free to use, improve and 
+change this shader according to your needs and consider sharing 
+the modified result to godotshaders.com.
+*/
+
+shader_type canvas_item;
+
+uniform int amount = 40;
+
+void fragment()
+{
+	vec2 grid_uv = round(UV * float(amount)) / float(amount);
+	
+	vec4 text = texture(TEXTURE, grid_uv);
+	
+	COLOR = text;
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/amount = 72
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 27.4995
+height = 10.0011
+
+[node name="Fish" type="RigidBody2D"]
+z_index = -5
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+material = SubResource( 3 )
+scale = Vector2( -0.25, 0.25 )
+frames = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 56, 0 )
+rotation = 1.5708
+scale = Vector2( 0.4, 0.4 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_Fish_body_entered"]
