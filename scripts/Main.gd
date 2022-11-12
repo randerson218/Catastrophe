@@ -37,7 +37,21 @@ func new_game():
 		spawn_fish()
 		fish_spawned +=1
 
+func get_fish_rarity():
+	var random_float = randf()
+
+	if random_float < 0.8:
+		# 80% chance of being returned.
+		return "Common"
+	elif random_float < 0.95:
+		# 15% chance of being returned.
+		return "Uncommon"
+	else:
+		# 5% chance of being returned.
+		return "Rare"
+
 func spawn_fish():
+	
 	# Create a new instance of the Mob scene.
 	var mob = fish_scene.instance()
 	
