@@ -4,12 +4,21 @@ export var reel_speed = 50
 
 var hook_cast = false
 var fish_on_hook = false
+var min_depth
+var max_depth
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sprite.visible = false
 	$CollisionShape2D.disabled = true
 	self.add_to_group("hook")
+	min_depth = get_node("../Boat").position.y
+	
+	var water = get_node("../Water")
+	max_depth = min_depth + water.texture.get_height() * water.scale.y - 100
+	
+	
 
 func _process(delta):
 	
@@ -17,10 +26,10 @@ func _process(delta):
 		hook_cast = true
 		get_node("../Camera").target_node = self
 			
-	if Input.is_action_pressed("up_key"):
+	if Input.is_action_pressed("up_key") and self.position.y > min_depth:
 		self.position.y -= reel_speed * delta
 		
-	if Input.is_action_pressed("down_key"):
+	if Input.is_action_pressed("down_key") and self.position.y < max_depth:
 		self.position.y += reel_speed * delta
 	
 	if get_node("../Player").in_boat and hook_cast:
@@ -37,4 +46,3 @@ func _draw():
 func _on_Hook_body_entered(body):
 	if body.is_in_group("fish"):
 		body.on_hook = true
-		body.boat_height = get_node("../Boat").position.y

@@ -4,7 +4,6 @@ export var speed = 25
 export var swimming_right = true
 
 var on_hook=false
-var boat_height
 var PRICE = 10
 
 func _ready():
@@ -29,9 +28,12 @@ func _process(delta):
 		swimming_right = true
 		self.scale.x *= -1
 	
+	#If the fish is colliding with boat catch box
+	if $RayCast2D.get_collider() != null:
+		if$RayCast2D.get_collider() == get_node("../Boat"):
+			queue_free()
+			#put payment here
+	
 func on_Hook(hookposition):
 	self.on_hook = true
 	self.position = hookposition
-	if self.position.y <= boat_height:
-		queue_free()
-		#PUT PAYMENT HERE
