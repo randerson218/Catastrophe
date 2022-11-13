@@ -39,13 +39,12 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 27.4995
+radius = 11.0
 height = 10.0011
 
-[node name="Fish" type="RigidBody2D"]
+[node name="Fish" type="KinematicBody2D"]
 z_index = -5
 collision_mask = 0
-gravity_scale = 0.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -53,13 +52,11 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 3 )
-scale = Vector2( -0.25, 0.25 )
+rotation = -3.14159
+scale = Vector2( 0.25, -0.25 )
 frames = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 56, 0 )
 rotation = 1.5708
-scale = Vector2( 0.4, 0.4 )
 shape = SubResource( 1 )
-
-[connection signal="body_entered" from="." to="." method="_on_Fish_body_entered"]
