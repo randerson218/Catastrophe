@@ -81,5 +81,6 @@ func spawn_fish():
 			mob.swimming_right = false
 
 		# Spawn the mob by adding it to the Main scene.
-		add_child(mob)
+		if !get_viewport_rect().has_point(mob.position):
+			add_child(mob)
 
