@@ -24,7 +24,11 @@ func _process(delta):
 			
 	else:
 		on_Hook(get_node("../Hook").position)
-		
+	
+	if $RayCast2D.is_colliding():
+		swimming_right = true
+		self.scale.x *= -1
+	
 func on_Hook(hookposition):
 	self.on_hook = true
 	self.position = hookposition

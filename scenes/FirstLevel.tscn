@@ -462,7 +462,7 @@ animation = "idle"
 position = Vector2( 176, 8.00001 )
 scale = Vector2( 0.1, 0.1 )
 z_index = -1
-collision_layer = 2
+collision_mask = 0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
