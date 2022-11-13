@@ -1,10 +1,13 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://scripts/Hook.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Boat.gd" type="Script" id=2]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=3]
+[ext_resource path="res://scenes/GUIMap.gd" type="Script" id=4]
 [ext_resource path="res://resources/objects/hook.png" type="Texture" id=5]
 [ext_resource path="res://resources/pixel_cats/pipo-nekonin001.png" type="Texture" id=6]
+[ext_resource path="res://scenes/GUIPause.gd" type="Script" id=7]
+[ext_resource path="res://scenes/GUIMap.tscn" type="PackedScene" id=8]
 [ext_resource path="res://icon.png" type="Texture" id=25]
 [ext_resource path="res://resources/background/forestbg.png" type="Texture" id=28]
 [ext_resource path="res://resources/objects/Boat.png" type="Texture" id=30]
@@ -437,8 +440,12 @@ zoom = Vector2( 0.5, 0.5 )
 script = ExtResource( 37 )
 TargetNodepath = NodePath("../Player")
 
-[node name="GUI" parent="." instance=ExtResource( 36 )]
-visible = false
+[node name="GUIPause" parent="." instance=ExtResource( 36 )]
+script = ExtResource( 7 )
+
+[node name="GUIMap2" parent="." instance=ExtResource( 8 )]
+pause_mode = 2
+script = ExtResource( 4 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 40, 16 )
@@ -524,8 +531,6 @@ texture = ExtResource( 5 )
 [node name="Line2D" type="Line2D" parent="Hook"]
 width = 1.0
 default_color = Color( 1, 1, 1, 1 )
-
-[node name="PlayerMap" type="CanvasLayer" parent="."]
 
 [node name="Dock" type="Area2D" parent="."]
 position = Vector2( 118, -10 )
