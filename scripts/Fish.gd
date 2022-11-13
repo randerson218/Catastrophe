@@ -8,7 +8,8 @@ var boat_height
 var PRICE = 10
 
 func _ready():
-	self.scale.x = -1
+	if !swimming_right:
+		self.scale.x = -1
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
