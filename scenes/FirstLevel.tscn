@@ -49,6 +49,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=42]
+extents = Vector2( 485, 110 )
+
 [sub_resource type="Shader" id=25]
 code = "shader_type canvas_item;
 
@@ -466,6 +469,7 @@ animation = "idle"
 position = Vector2( 176, 8.00001 )
 scale = Vector2( 0.1, 0.1 )
 z_index = -1
+collision_mask = 0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -474,6 +478,11 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Boat"]
 z_index = -1
 texture = ExtResource( 30 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boat"]
+position = Vector2( 5, -50 )
+scale = Vector2( 0.999999, 0.999999 )
+shape = SubResource( 42 )
 
 [node name="Water" type="Sprite" parent="."]
 material = SubResource( 26 )
@@ -515,6 +524,8 @@ tile_data = PoolIntArray( 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0,
 [node name="Hook" type="Area2D" parent="."]
 position = Vector2( 176, 32 )
 z_index = -10
+collision_layer = 2
+collision_mask = 6
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -544,3 +555,5 @@ shape = SubResource( 39 )
 
 [node name="BoatExit" type="Position2D" parent="."]
 position = Vector2( 113, -2 )
+
+[connection signal="body_entered" from="Hook" to="Hook" method="_on_Hook_body_entered"]

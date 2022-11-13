@@ -24,8 +24,9 @@ func _process(delta):
 	var allfish = get_tree().get_nodes_in_group("fish")
 	
 	for fish in allfish:
-		if fish.position.x <= water_left + spawn_left_offset:
-			fish.swimming_right = true
+		#if fish.position.x <= water_left + spawn_left_offset:
+		#	fish.swimming_right = true
+		#	fish.scale.x *= -1
 		if fish.position.x >= water_right:
 			fish.queue_free()
 			
@@ -78,8 +79,7 @@ func spawn_fish():
 			mob.swimming_right = true
 		else:
 			mob.swimming_right = false
-		
-		
+
 		# Spawn the mob by adding it to the Main scene.
 		add_child(mob)
 
