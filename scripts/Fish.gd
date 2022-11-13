@@ -31,6 +31,7 @@ func _process(delta):
 	#If the fish is colliding with boat catch box
 	if $RayCast2D.get_collider() != null:
 		if$RayCast2D.get_collider() == get_node("../Boat"):
+			get_node("../Hook").fish_on_hook =false
 			queue_free()
 			#put payment here
 	
