@@ -4,7 +4,7 @@ export(PackedScene) var fish_scene
 
 export var spawn_height_offset = 16
 export var spawn_left_offset = 16
-export var MAX_FISH = 100
+export var MAX_FISH = 1000
 
 var init_fish = int(MAX_FISH/2)
 var random = RandomNumberGenerator.new()
@@ -50,13 +50,27 @@ func get_fish_rarity():
 	else:
 		# 5% chance of being returned.
 		return "Rare"
+	
+	
 
 func spawn_fish():
+	var rarity = get_fish_rarity()
 	
-	# Create a new instance of the Mob scene.
-	var mob = fish_scene.instance()
+	var common = [preload("res://scenes/fish_scenes/Fish.tscn")]
+	var uncommon = [preload("res://scenes/fish_scenes/Angler.tscn"),
+	preload("res://scenes/fish_scenes/Sawfish.tscn")]
+	var rare = [preload("res://scenes/fish_scenes/Shark.tscn")]
+	
+	#spawn common fish by default
+	var mob = common[0].instance()
+	
+	if rarity == "Uncommon":
+		mob = uncommon[0].instance()
+	elif rarity == "Rare":
+		mob = rare[0].instance()
 	
 	mob.add_to_group("fish")
+	mob.add_to_group(rarity)
 	
 	if get_tree().get_nodes_in_group("fish").size() < MAX_FISH:
 		# Choose a random location on Path2D.
@@ -81,5 +95,6 @@ func spawn_fish():
 			mob.swimming_right = false
 
 		# Spawn the mob by adding it to the Main scene.
-		add_child(mob)
+		if !get_viewport_rect().has_point(mob.position):
+			add_child(mob)
 
