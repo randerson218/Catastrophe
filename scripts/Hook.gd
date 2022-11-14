@@ -24,6 +24,7 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("interact_key") and !hook_cast:
 		hook_cast = true
+		toggle_enabled()
 		get_node("../Camera").target_node = self
 	elif Input.is_action_just_pressed("interact_key") and hook_cast and !fish_on_hook:
 		hook_cast = false
@@ -38,7 +39,6 @@ func _process(delta):
 			self.position.y += reel_speed * delta
 	
 	if get_node("../Player").in_boat and hook_cast:
-		toggle_enabled()
 		self.position.x = boat.position.x
 	#update line for fishing line 
 	update()

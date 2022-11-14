@@ -4,7 +4,6 @@ export var speed = 25
 export var swimming_right = true
 
 var on_hook=false
-var PRICE = 10
 
 func _ready():
 	if !swimming_right:
@@ -26,7 +25,8 @@ func _process(delta):
 	
 	if $RayCast2D.is_colliding():
 		swimming_right = true
-		self.scale.x *= -1
+		if !$RayCast2D.get_collider().is_in_group("fish"):
+			self.scale.x *= -1
 	
 	#If the fish is colliding with boat catch box
 	if $RayCast2D.get_collider() != null:

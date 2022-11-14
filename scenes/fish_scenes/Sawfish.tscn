@@ -17,7 +17,8 @@ height = 22.0
 
 [node name="Fish" type="KinematicBody2D"]
 z_index = -5
-collision_mask = 0
+collision_layer = 0
+collision_mask = 6
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -34,4 +35,6 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = true
 cast_to = Vector2( 65, 0 )
+collide_with_areas = true
