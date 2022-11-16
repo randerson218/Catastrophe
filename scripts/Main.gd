@@ -10,6 +10,7 @@ var init_fish = int(MAX_FISH/2)
 var random = RandomNumberGenerator.new()
 var water_left = 0
 var water_right = 0
+var first_load = true
 
 func _ready():
 	randomize()
@@ -37,37 +38,65 @@ func new_game():
 	while fish_spawned < init_fish:
 		spawn_fish()
 		fish_spawned +=1
+	first_load = false
 
 func get_fish_rarity():
 	var random_float = randf()
 
-	if random_float < 0.8:
-		# 80% chance of being returned.
+	if random_float < 0.70:
+		# 70% chance of being returned.
 		return "Common"
-	elif random_float < 0.95:
+	elif random_float < 0.85:
 		# 15% chance of being returned.
 		return "Uncommon"
-	else:
-		# 5% chance of being returned.
+	elif random_float < 0.95:
+		# 10% chance of being returned.
 		return "Rare"
-	
+	else:
+		# 5% chance of being boss
+		return "Boss"
 	
 
 func spawn_fish():
 	var rarity = get_fish_rarity()
+	var mob
 	
-	var common = [preload("res://scenes/fish_scenes/Fish.tscn")]
-	var uncommon = [preload("res://scenes/fish_scenes/Angler.tscn"),
-	preload("res://scenes/fish_scenes/Sawfish.tscn")]
-	var rare = [preload("res://scenes/fish_scenes/Shark.tscn")]
+	var common = [
+	preload("res://scenes/fish_scenes/RedFish.tscn"),
+	preload("res://scenes/fish_scenes/BlueFish.tscn"),
+	preload("res://scenes/fish_scenes/GreenFish.tscn"),
+	preload("res://scenes/fish_scenes/OrangeFish.tscn")
+	]
 	
-	#spawn common fish by default
-	var mob = common[0].instance()
+	var uncommon = [preload("res://scenes/fish_scenes/Greyfish.tscn"),
+	preload("res://scenes/fish_scenes/Fish.tscn"),
+	preload("res://scenes/fish_scenes/SkeletonFish1.tscn"),
+	preload("res://scenes/fish_scenes/SkeletonFish2.tscn"),
+	preload("res://scenes/fish_scenes/SkeletonFish3.tscn"),
+	preload("res://scenes/fish_scenes/SkeletonFish4.tscn")
+	]
 	
-	if rarity == "Uncommon":
-		mob = uncommon[0].instance()
+	var rare = [preload("res://scenes/fish_scenes/Blowfish.tscn"),
+	preload("res://scenes/fish_scenes/Longfish.tscn"),
+	preload("res://scenes/fish_scenes/SkeletonFish5.tscn"),]
+	
+	var boss = [preload("res://scenes/fish_scenes/Angler.tscn"),
+	preload("res://scenes/fish_scenes/Sawfish.tscn"),
+	preload("res://scenes/fish_scenes/Shark.tscn")]
+	
+	
+	if rarity == "Common":
+		var i = random.randi_range(0,common.size()-1)
+		mob = common[i].instance()
+	elif rarity == "Uncommon":
+		var i = random.randi_range(0,uncommon.size()-1)
+		mob = uncommon[i].instance()
 	elif rarity == "Rare":
-		mob = rare[0].instance()
+		var i = random.randi_range(0,rare.size()-1)
+		mob = rare[i].instance()
+	elif rarity == "Boss":
+		var i = random.randi_range(0,boss.size()-1)
+		mob = boss[i].instance()
 	
 	mob.add_to_group("fish")
 	mob.add_to_group(rarity)
@@ -94,7 +123,9 @@ func spawn_fish():
 		else:
 			mob.swimming_right = false
 
-		# Spawn the mob by adding it to the Main scene.
-		if !get_viewport_rect().has_point(mob.position):
+		if !first_load:# Spawn the mob by adding it to the Main scene.
+			if !get_viewport_rect().has_point(mob.position):
+				add_child(mob)
+		else:
 			add_child(mob)
 
