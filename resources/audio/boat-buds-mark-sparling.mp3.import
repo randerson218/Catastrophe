@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/boat-buds-mark-sparling.mp3-4d916b0fff6173886cfd7983d3efe78c.mp3str"
+
+[deps]
+
+source_file="res://resources/audio/boat-buds-mark-sparling.mp3"
+dest_files=[ "res://.import/boat-buds-mark-sparling.mp3-4d916b0fff6173886cfd7983d3efe78c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

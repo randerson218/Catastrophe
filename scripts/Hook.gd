@@ -26,6 +26,7 @@ func _process(delta):
 		hook_cast = true
 		toggle_enabled()
 		get_node("../Camera").target_node = self
+		$Audio.play()
 	elif Input.is_action_just_pressed("interact_key") and hook_cast and !fish_on_hook:
 		hook_cast = false
 		get_node("../Camera").target_node = boat
