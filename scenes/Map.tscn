@@ -2,7 +2,7 @@
 
 [ext_resource path="res://resources/map/mapbg.png" type="Texture" id=1]
 [ext_resource path="res://resources/map/Tilemap.png" type="Texture" id=2]
-[ext_resource path="res://scenes/Map.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Map.gd" type="Script" id=3]
 [ext_resource path="res://resources/map/broken_rocket.png" type="Texture" id=4]
 
 [sub_resource type="TileSet" id=1]

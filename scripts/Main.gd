@@ -23,8 +23,7 @@ func _ready():
 	
 	water_left = $Water.position.x - edge_distance
 	water_right= $Water.position.x + edge_distance
-	
-	print(TownPoint)
+
 
 func _process(delta):
 	var allfish = get_tree().get_nodes_in_group("fish")
@@ -40,6 +39,7 @@ func _process(delta):
 	
 	if TownPoint != null:
 		if Player.position.x < TownPoint.position.x:
+			Globals.prev_scene = get_tree().current_scene.filename
 			get_tree().change_scene("res://scenes/Town1.tscn")
 
 func new_game():

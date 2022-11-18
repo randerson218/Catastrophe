@@ -56,3 +56,4 @@ func _on_Hook_body_entered(body):
 func toggle_enabled():
 	$Sprite.visible = !$Sprite.visible
 	$CollisionShape2D.disabled = !$CollisionShape2D.disabled
+	get_node("../Camera").is_zoomed = !get_node("../Camera").is_zoomed
