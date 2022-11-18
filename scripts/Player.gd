@@ -20,6 +20,8 @@ func _process(delta):
 	change_animation()
 	if Input.is_action_just_pressed("reset_player"):
 		position = Vector2(0,0)
+		
+	
 
 func _physics_process(delta: float) -> void:
 	# reset horizontal velocity

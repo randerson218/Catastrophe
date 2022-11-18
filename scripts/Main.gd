@@ -12,6 +12,9 @@ var water_left = 0
 var water_right = 0
 var first_load = true
 
+onready var TownPoint = get_node("TownPoint")
+onready var Player = get_node("Player")
+
 func _ready():
 	randomize()
 	new_game()
@@ -20,6 +23,8 @@ func _ready():
 	
 	water_left = $Water.position.x - edge_distance
 	water_right= $Water.position.x + edge_distance
+	
+	print(TownPoint)
 
 func _process(delta):
 	var allfish = get_tree().get_nodes_in_group("fish")
@@ -32,6 +37,10 @@ func _process(delta):
 			fish.queue_free()
 			
 	spawn_fish()
+	
+	if TownPoint != null:
+		if Player.position.x < TownPoint.position.x:
+			get_tree().change_scene("res://scenes/Town1.tscn")
 
 func new_game():
 	var fish_spawned = 0
