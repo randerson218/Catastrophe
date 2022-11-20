@@ -6,6 +6,7 @@ extends Node
 # var b = "text"
 var prev_scene
 var worth_in_boat = 0
+var player_money = 0
 var water_level
 
 # Called when the node enters the scene tree for the first time.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://scripts/Boat.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
@@ -16,9 +16,14 @@
 [ext_resource path="res://resources/pixel_cats/pipo-nekonin001.png" type="Texture" id=14]
 [ext_resource path="res://resources/objects/hook.png" type="Texture" id=15]
 [ext_resource path="res://resources/objects/Boat.png" type="Texture" id=16]
+[ext_resource path="res://resources/audio/cast.mp3" type="AudioStream" id=17]
 
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 10, 13 )
+
+[sub_resource type="AtlasTexture" id=54]
+atlas = ExtResource( 14 )
+region = Rect2( 32, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=31]
 atlas = ExtResource( 14 )
@@ -36,8 +41,13 @@ region = Rect2( 32, 64, 32, 32 )
 atlas = ExtResource( 14 )
 region = Rect2( 64, 64, 32, 32 )
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=56]
 animations = [ {
+"frames": [ SubResource( 54 ) ],
+"loop": true,
+"name": "boat",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 31 ) ],
 "loop": true,
 "name": "idle",
@@ -48,9 +58,6 @@ animations = [ {
 "name": "walk",
 "speed": 5.0
 } ]
-
-[sub_resource type="RectangleShape2D" id=42]
-extents = Vector2( 485, 110 )
 
 [sub_resource type="Shader" id=25]
 code = "shader_type canvas_item;
@@ -560,8 +567,38 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 radius = 8.0
 height = 0.0
 
-[sub_resource type="RectangleShape2D" id=39]
-extents = Vector2( 14.5, 18 )
+[sub_resource type="Shader" id=58]
+code = "/*
+Shader from Godot Shaders - the free shader library.
+godotshaders.com/shader/pixelate
+
+This shader is under CC0 license. Feel free to use, improve and 
+change this shader according to your needs and consider sharing 
+the modified result to godotshaders.com.
+*/
+
+shader_type canvas_item;
+
+uniform int amount = 40;
+
+void fragment()
+{
+	vec2 grid_uv = round(UV * float(amount)) / float(amount);
+	
+	vec4 text = texture(TEXTURE, grid_uv);
+	
+	COLOR = text;
+}"
+
+[sub_resource type="ShaderMaterial" id=53]
+shader = SubResource( 58 )
+shader_param/amount = 59
+
+[sub_resource type="RectangleShape2D" id=57]
+extents = Vector2( 485, 110 )
+
+[sub_resource type="RectangleShape2D" id=55]
+extents = Vector2( 63, 18 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 5 )
@@ -595,33 +632,14 @@ shape = SubResource( 24 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 position = Vector2( -16, -31 )
-frames = SubResource( 8 )
-animation = "idle"
-
-[node name="Boat" type="KinematicBody2D" parent="."]
-position = Vector2( 176, 8.00001 )
-scale = Vector2( 0.1, 0.1 )
-z_index = -1
-collision_mask = 4
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Boat"]
-z_index = -1
-texture = ExtResource( 16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boat"]
-position = Vector2( 5, -50 )
-scale = Vector2( 0.999999, 0.999999 )
-shape = SubResource( 42 )
+frames = SubResource( 56 )
+animation = "boat"
 
 [node name="Water" type="Sprite" parent="."]
 material = SubResource( 26 )
 position = Vector2( 1143.5, 208 )
 scale = Vector2( 31.6719, 6.39062 )
-z_index = -2
+z_index = 10
 texture = ExtResource( 11 )
 
 [node name="BehindMap" type="TileMap" parent="."]
@@ -677,6 +695,35 @@ texture = ExtResource( 15 )
 width = 1.0
 default_color = Color( 1, 1, 1, 1 )
 
+[node name="Audio" type="AudioStreamPlayer2D" parent="Hook"]
+stream = ExtResource( 17 )
+
+[node name="BoatExit" type="Position2D" parent="."]
+position = Vector2( 113, -2 )
+
+[node name="Boat" type="KinematicBody2D" parent="."]
+position = Vector2( 176, 8.00001 )
+scale = Vector2( 0.1, 0.1 )
+z_index = -1
+collision_mask = 4
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Boat"]
+material = SubResource( 53 )
+z_index = -1
+texture = ExtResource( 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boat"]
+position = Vector2( 5, -50 )
+scale = Vector2( 0.999999, 0.999999 )
+shape = SubResource( 57 )
+
+[node name="BoatSeat" type="Position2D" parent="Boat"]
+position = Vector2( 0, 125 )
+
 [node name="Dock" type="Area2D" parent="."]
 position = Vector2( 118, -10 )
 __meta__ = {
@@ -684,10 +731,13 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dock"]
-position = Vector2( -4.5, -8 )
-shape = SubResource( 39 )
+position = Vector2( 44, -8 )
+shape = SubResource( 55 )
 
-[node name="BoatExit" type="Position2D" parent="."]
-position = Vector2( 113, -2 )
+[node name="TownPoint" type="Position2D" parent="."]
+position = Vector2( -384, -12 )
+
+[node name="MaxRight" type="Position2D" parent="."]
+position = Vector2( 1700, 0 )
 
 [connection signal="body_entered" from="Hook" to="Hook" method="_on_Hook_body_entered"]
