@@ -17,6 +17,7 @@ onready var hook = get_node("../Hook")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+	player.add_collision_exception_with(self)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # warning-ignore:unused_argument
