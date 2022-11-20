@@ -64,7 +64,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Shader" id=43]
+[sub_resource type="Shader" id=55]
 code = "/*
 Shader from Godot Shaders - the free shader library.
 godotshaders.com/shader/pixelate
@@ -88,7 +88,7 @@ void fragment()
 }"
 
 [sub_resource type="ShaderMaterial" id=44]
-shader = SubResource( 43 )
+shader = SubResource( 55 )
 shader_param/amount = 59
 
 [sub_resource type="RectangleShape2D" id=42]
@@ -757,7 +757,7 @@ position = Vector2( 0, 125 )
 material = SubResource( 26 )
 position = Vector2( 1067.5, 207.037 )
 scale = Vector2( 29.3594, 6.45427 )
-z_index = -2
+z_index = -1
 texture = ExtResource( 25 )
 
 [node name="BehindMap" type="TileMap" parent="."]
@@ -856,5 +856,8 @@ script = ExtResource( 15 )
 
 [node name="TownPoint" type="Position2D" parent="."]
 position = Vector2( -384, -12 )
+
+[node name="MaxRight" type="Position2D" parent="."]
+position = Vector2( 1700, 0 )
 
 [connection signal="body_entered" from="Hook" to="Hook" method="_on_Hook_body_entered"]

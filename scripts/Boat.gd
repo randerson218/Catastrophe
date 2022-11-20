@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	
 	if player.in_control and player.in_boat:
 		# set horizontal velocity
-		if Input.is_action_pressed("move_right"):
+		if Input.is_action_pressed("move_right") and self.position.x < get_node("../MaxRight").position.x:
 			velocity.x += speed
 		if Input.is_action_pressed("move_left"):
 			velocity.x -= speed
