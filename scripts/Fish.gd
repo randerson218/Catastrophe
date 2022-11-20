@@ -2,7 +2,9 @@ extends KinematicBody2D
 
 export var speed = 25
 export var swimming_right = true
+var water_right
 
+var worth = 0
 var on_hook=false
 
 func _ready():
@@ -33,7 +35,11 @@ func _process(delta):
 		if$RayCast2D.get_collider() == get_node("../Boat"):
 			get_node("../Hook").fish_on_hook =false
 			queue_free()
-			#put payment here
+			Globals.worth_in_boat += worth
+			print(Globals.worth_in_boat)
+	
+	if self.global_position.x > water_right:
+		queue_free() 
 	
 func on_Hook(hookposition):
 	self.on_hook = true
