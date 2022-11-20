@@ -8,6 +8,7 @@ var min_depth
 var max_depth
 var hook_focused = false
 onready var boat = get_node("../Boat")
+onready var player = get_node("../Player")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,7 +23,7 @@ func _ready():
 
 func _process(delta):
 	
-	if Input.is_action_just_pressed("interact_key") and !hook_cast:
+	if Input.is_action_just_pressed("interact_key") and !hook_cast and player.in_boat:
 		hook_cast = true
 		toggle_enabled()
 		get_node("../Camera").target_node = self
@@ -39,7 +40,7 @@ func _process(delta):
 		if Input.is_action_pressed("down_key") and self.position.y < max_depth:
 			self.position.y += reel_speed * delta
 	
-	if get_node("../Player").in_boat and hook_cast:
+	if player.in_boat and hook_cast:
 		self.position.x = boat.position.x
 	#update line for fishing line 
 	update()

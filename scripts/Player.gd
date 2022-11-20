@@ -3,7 +3,6 @@ extends KinematicBody2D
 
 export var speed = 150 # How fast the player will move (pixels/sec).
 export var gravity := 2000
-export var jump_speed := 550
 export var money = 0
 
 var in_boat = false
@@ -14,13 +13,16 @@ var screen_size # Size of the game window.
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+	add_collision_exception_with(get_node("../Boat"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	change_animation()
+	if !in_boat:
+		change_animation()
+	else:
+		$AnimatedSprite.play("boat")
 	if Input.is_action_just_pressed("reset_player"):
 		position = Vector2(0,0)
-		
 	
 
 func _physics_process(delta: float) -> void:
@@ -34,14 +36,14 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("move_left"):
 			velocity.x -= speed
 
-	#turn off gravity for player when in boat
-	if not in_boat:
+	if in_boat:
+		#$CollisionShape2D.disabled = true
+		z_index = -2
+	else:
+		#$CollisionShape2D.disabled = false
+		z_index = 0
 		velocity.y += gravity * delta
-
-	# jump will happen on the next frame
-	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
-			velocity.y = -jump_speed # negative Y is up in Godot
+	
 
 	# actually move the player
 	velocity = move_and_slide(velocity, Vector2.UP)

@@ -50,6 +50,9 @@ var boss = [preload("res://scenes/fish_scenes/Angler.tscn"),
 func _ready():
 	randomize()
 	new_game()
+	
+	#Sets water level global
+	Globals.water_level = $Water.global_position.y - water_half_height
 
 func _process(delta):
 	spawn_fish()
