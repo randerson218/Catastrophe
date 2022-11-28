@@ -34,4 +34,5 @@ func _on_BuyLureButton_pressed():
 func _on_SellButton_pressed():
 	Globals.player_money += Globals.worth_in_boat
 	Globals.worth_in_boat = 0
+	Globals.num_fish_in_boat = 0
 	print("Players money:" + str(Globals.player_money))

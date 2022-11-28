@@ -44,6 +44,9 @@ func _process(delta):
 		self.position.x = boat.position.x
 	#update line for fishing line 
 	update()
+	
+	if Globals.num_fish_in_boat >= Globals.max_capacity:
+		$CollisionShape2D.disabled = true
 		
 func _draw():
 	if hook_cast:

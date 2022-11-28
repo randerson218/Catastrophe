@@ -36,6 +36,7 @@ func _process(delta):
 			get_node("../Hook").fish_on_hook =false
 			queue_free()
 			Globals.worth_in_boat += worth
+			Globals.num_fish_in_boat +=1
 			print(Globals.worth_in_boat)
 	
 	if self.global_position.x > water_right:
