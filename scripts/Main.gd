@@ -8,9 +8,9 @@ onready var Player = get_node("Player")
 #Offset from top and bottom of water to spawn fish
 export var spawn_offset = 25
 #Maximum fish to spawn
-export var MAX_FISH = 1000
+export var MAX_FISH = 50
 #Fish to spawn on initial load
-var init_fish = int(MAX_FISH/2)
+var init_fish = int(MAX_FISH/1)
 
 #Checks if its the first load of the scene
 var first_load = true
@@ -27,21 +27,23 @@ onready var water_right= $Water.global_position.x + water_half_width
 var common = [
 	preload("res://scenes/fish_scenes/RedFish.tscn"),
 	preload("res://scenes/fish_scenes/BlueFish.tscn"),
-	preload("res://scenes/fish_scenes/GreenFish.tscn"),
+	preload("res://scenes/fish_scenes/GreenFish.tscn")]
+	
+var uncommon = [preload("res://scenes/fish_scenes/Greyfish.tscn"),
 	preload("res://scenes/fish_scenes/OrangeFish.tscn")
 	]
 	
-var uncommon = [preload("res://scenes/fish_scenes/Greyfish.tscn"),
-	preload("res://scenes/fish_scenes/Fish.tscn"),
-	preload("res://scenes/fish_scenes/SkeletonFish1.tscn"),
-	preload("res://scenes/fish_scenes/SkeletonFish2.tscn"),
-	preload("res://scenes/fish_scenes/SkeletonFish3.tscn"),
-	preload("res://scenes/fish_scenes/SkeletonFish4.tscn")
-	]
-	
-var rare = [preload("res://scenes/fish_scenes/Blowfish.tscn"),
+var rare = [preload("res://scenes/fish_scenes/Fish.tscn"),
 	preload("res://scenes/fish_scenes/Longfish.tscn"),
-	preload("res://scenes/fish_scenes/SkeletonFish5.tscn"),]
+	preload("res://scenes/fish_scenes/SkeletonFish2.tscn")]
+
+var epic = [preload("res://scenes/fish_scenes/Blowfish.tscn"),
+	preload("res://scenes/fish_scenes/SkeletonFish1.tscn"),
+	preload("res://scenes/fish_scenes/SkeletonFish3.tscn")]
+
+var legendary = [preload("res://scenes/fish_scenes/SkeletonFish4.tscn")]
+
+var mythic = [preload("res://scenes/fish_scenes/SkeletonFish5.tscn")]
 	
 var boss = [preload("res://scenes/fish_scenes/Angler.tscn"),
 	preload("res://scenes/fish_scenes/Sawfish.tscn"),
@@ -72,18 +74,30 @@ func new_game():
 func get_fish_rarity():
 	var random_float = randf()
 
-	if random_float < 0.70:
-		# 70% chance of being returned.
+	if random_float < 0.50:
+		# 50% chance of being returned.
 		return "Common"
-	elif random_float < 0.85:
-		# 15% chance of being returned.
+	elif random_float < 0.80:
+		# 30% chance of being returned.
 		return "Uncommon"
-	elif random_float < 0.95:
+	elif random_float < 0.90:
 		# 10% chance of being returned.
 		return "Rare"
-	else:
-		# 5% chance of being boss
+	elif random_float < 0.95:
+		# 5% chance of being returned.
+		return "Epic"
+	elif random_float < 0.975:
+		# 2.5% chance of being returned.
+		return "Legendary"
+	elif random_float < 0.98:
+		# 0.5% chance of being returned.
+		return "Mythic"
+	elif random_float < 0.995:
+		# 1.5% chance of being boss
 		return "Boss"
+	else:
+		#0.5% chance of exotic
+		return "Exotic"
 	
 
 func spawn_fish():
@@ -102,10 +116,27 @@ func spawn_fish():
 		var i = random.randi_range(0,rare.size()-1)
 		mob = rare[i].instance()
 		mob.worth = 15
+	elif rarity == "Epic":
+		var i = random.randi_range(0,epic.size()-1)
+		mob = epic[i].instance()
+		mob.worth = 20
+	elif rarity == "Legendary":
+		var i = random.randi_range(0,legendary.size()-1)
+		mob = legendary[i].instance()
+		mob.worth = 25
+	elif rarity == "Mythic":
+		var i = random.randi_range(0,mythic.size()-1)
+		mob = mythic[i].instance()
+		mob.worth = 30
 	elif rarity == "Boss":
 		var i = random.randi_range(0,boss.size()-1)
 		mob = boss[i].instance()
-		mob.worth = 20
+		mob.worth = 35
+	elif rarity == "Exotic":
+		var i = random.randi_range(0,boss.size()-1)
+		mob = boss[i].instance()
+		mob.worth = 40
+	
 	
 	mob.add_to_group("fish")
 	mob.add_to_group(rarity)
