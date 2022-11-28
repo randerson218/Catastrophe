@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://resources/gui/BuyButton.png" type="Texture" id=1]
 [ext_resource path="res://resources/gui/Wooden Pixel Art GUI 32x32.png" type="Texture" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://scripts/Market.gd" type="Script" id=8]
 [ext_resource path="res://resources/gui/CaughtFish.png" type="Texture" id=9]
 [ext_resource path="res://resources/gui/HookUpgrade.png" type="Texture" id=10]
+[ext_resource path="res://resources/gui/BuyDarkButton.png" type="Texture" id=11]
+[ext_resource path="res://resources/gui/SellDarkButton.png" type="Texture" id=12]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -45,8 +47,8 @@ patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 16
 
-[node name="Icons18" type="Sprite" parent="CenterContainer/BuySell"]
-position = Vector2( 8.16, 8.53333 )
+[node name="BoatIcon" type="Sprite" parent="CenterContainer/BuySell"]
+position = Vector2( 8.32001, 8.53333 )
 scale = Vector2( 0.075, 0.125 )
 texture = ExtResource( 6 )
 
@@ -55,52 +57,52 @@ position = Vector2( 16, 8.53333 )
 scale = Vector2( 0.05, 0.1 )
 texture = ExtResource( 7 )
 
-[node name="BuyButton" type="Button" parent="CenterContainer/BuySell"]
-margin_left = 22.08
-margin_top = 6.93333
-margin_right = 130.08
-margin_bottom = 44.9333
+[node name="BuyButton" type="TextureButton" parent="CenterContainer/BuySell"]
+margin_left = 21.76
+margin_top = 6.53333
+margin_right = 129.76
+margin_bottom = 44.5333
 rect_scale = Vector2( 0.05, 0.1 )
-icon = ExtResource( 1 )
-flat = true
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 11 )
 
-[node name="Icons03" type="Sprite" parent="CenterContainer/BuySell"]
+[node name="RodIcon" type="Sprite" parent="CenterContainer/BuySell"]
 position = Vector2( 8.32001, 16.5333 )
 scale = Vector2( 0.075, 0.125 )
 texture = ExtResource( 5 )
 
 [node name="HookUpgrade" type="Sprite" parent="CenterContainer/BuySell"]
-position = Vector2( 16, 17.0667 )
+position = Vector2( 16, 16.5333 )
 scale = Vector2( 0.05, 0.1 )
 texture = ExtResource( 10 )
 
-[node name="BuyLureButton" type="Button" parent="CenterContainer/BuySell"]
-margin_left = 22.08
-margin_top = 14.9333
-margin_right = 130.08
-margin_bottom = 52.9333
+[node name="BuyLureButton" type="TextureButton" parent="CenterContainer/BuySell"]
+margin_left = 21.76
+margin_top = 14.6667
+margin_right = 129.76
+margin_bottom = 52.6667
 rect_scale = Vector2( 0.05, 0.1 )
-icon = ExtResource( 1 )
-flat = true
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 11 )
 
-[node name="Icons17" type="Sprite" parent="CenterContainer/BuySell"]
+[node name="FishIcon" type="Sprite" parent="CenterContainer/BuySell"]
 position = Vector2( 8.32001, 24.5333 )
 scale = Vector2( 0.075, 0.125 )
 texture = ExtResource( 3 )
 
 [node name="CaughtFish" type="Sprite" parent="CenterContainer/BuySell"]
-position = Vector2( 16, 25.0667 )
+position = Vector2( 16, 24.5333 )
 scale = Vector2( 0.05, 0.1 )
 texture = ExtResource( 9 )
 
-[node name="SellButton" type="Button" parent="CenterContainer/BuySell"]
+[node name="SellButton" type="TextureButton" parent="CenterContainer/BuySell"]
 margin_left = 22.08
 margin_top = 23.0667
 margin_right = 130.08
 margin_bottom = 61.0667
 rect_scale = Vector2( 0.05, 0.1 )
-icon = ExtResource( 4 )
-flat = true
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 12 )
 
 [connection signal="pressed" from="CenterContainer/BuySell/BuyButton" to="." method="_on_BuyButton_pressed"]
 [connection signal="pressed" from="CenterContainer/BuySell/BuyLureButton" to="." method="_on_BuyLureButton_pressed"]
