@@ -1,16 +1,10 @@
-extends Node
+extends Control
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var prev_scene
-var worth_in_boat = 0
-var player_money = 75
-var water_level
-var lure_level = 0
-var max_capacity = 5
-var num_fish_in_boat = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,5 +12,6 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	var percentfull = float(Globals.num_fish_in_boat)/float(Globals.max_capacity) * 100.0
+	$TextureProgress.value = percentfull

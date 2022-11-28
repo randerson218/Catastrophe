@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://scripts/Hook.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Boat.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://resources/audio/cast.mp3" type="AudioStream" id=13]
 [ext_resource path="res://resources/audio/boat-buds-mark-sparling.mp3" type="AudioStream" id=14]
 [ext_resource path="res://scripts/MusicPlayer.gd" type="Script" id=15]
+[ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/GUIPause.tscn" type="PackedScene" id=18]
 [ext_resource path="res://icon.png" type="Texture" id=25]
 [ext_resource path="res://resources/objects/Boat.png" type="Texture" id=30]
@@ -848,6 +849,8 @@ material = SubResource( 53 )
 tile_set = ExtResource( 11 )
 cell_size = Vector2( 16, 16 )
 format = 1
+
+[node name="GUI" parent="Market" instance=ExtResource( 16 )]
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
