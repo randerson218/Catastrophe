@@ -1,6 +1,8 @@
 extends Control
 
 var is_paused = false setget set_is_paused
+var lure_cost = 50
+var capacity_cost = 50
 
 func _unhandled_input(event):
 	if event.is_action_pressed("market"):
@@ -16,13 +18,20 @@ func set_is_paused(value):
 
 
 func _on_BuyButton_pressed():
-	pass # Replace with function body.
-
-
+	if Globals.player_money > capacity_cost:
+		Globals.max_capacity += 1
+		Globals.player_money -= capacity_cost
+		print(Globals.max_capacity)
+		print("Players money:" + str(Globals.player_money))
 
 func _on_BuyLureButton_pressed():
-	pass # Replace with function body.
-
+	if Globals.player_money > lure_cost:
+		Globals.lure_level += 1
+		Globals.player_money -= lure_cost
+		print(Globals.lure_level)
+		print("Players money:" + str(Globals.player_money))
 
 func _on_SellButton_pressed():
-	pass # Replace with function body.
+	Globals.player_money += Globals.worth_in_boat
+	Globals.worth_in_boat = 0
+	print("Players money:" + str(Globals.player_money))

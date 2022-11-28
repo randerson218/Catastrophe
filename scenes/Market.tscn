@@ -104,4 +104,4 @@ flat = true
 
 [connection signal="pressed" from="CenterContainer/BuySell/BuyButton" to="." method="_on_BuyButton_pressed"]
 [connection signal="pressed" from="CenterContainer/BuySell/BuyLureButton" to="." method="_on_BuyLureButton_pressed"]
-[connection signal="pressed" from="CenterContainer/BuySell/SellButton" to="." method="_on_SellButton3_pressed"]
+[connection signal="pressed" from="CenterContainer/BuySell/SellButton" to="." method="_on_SellButton_pressed"]
