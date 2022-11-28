@@ -1,0 +1,107 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://resources/gui/BuyButton.png" type="Texture" id=1]
+[ext_resource path="res://resources/gui/Wooden Pixel Art GUI 32x32.png" type="Texture" id=2]
+[ext_resource path="res://resources/gui/Icons_16.png" type="Texture" id=3]
+[ext_resource path="res://resources/gui/SellButton.png" type="Texture" id=4]
+[ext_resource path="res://resources/gui/Icons_03.png" type="Texture" id=5]
+[ext_resource path="res://resources/gui/Icons_18.png" type="Texture" id=6]
+[ext_resource path="res://resources/gui/Capacity.png" type="Texture" id=7]
+[ext_resource path="res://scripts/Market.gd" type="Script" id=8]
+[ext_resource path="res://resources/gui/CaughtFish.png" type="Texture" id=9]
+[ext_resource path="res://resources/gui/HookUpgrade.png" type="Texture" id=10]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 448, 640, 96, 96 )
+
+[node name="Market" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.12549, 0.12549, 0.12549, 0.627451 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 112.0
+margin_top = -236.0
+margin_right = -880.0
+margin_bottom = -204.0
+rect_scale = Vector2( 25, 15 )
+
+[node name="BuySell" type="NinePatchRect" parent="CenterContainer"]
+margin_right = 32.0
+margin_bottom = 32.0
+texture = SubResource( 1 )
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Icons18" type="Sprite" parent="CenterContainer/BuySell"]
+position = Vector2( 8.16, 8.53333 )
+scale = Vector2( 0.075, 0.125 )
+texture = ExtResource( 6 )
+
+[node name="Capacity" type="Sprite" parent="CenterContainer/BuySell"]
+position = Vector2( 16, 8.53333 )
+scale = Vector2( 0.05, 0.1 )
+texture = ExtResource( 7 )
+
+[node name="BuyButton" type="Button" parent="CenterContainer/BuySell"]
+margin_left = 22.08
+margin_top = 6.93333
+margin_right = 130.08
+margin_bottom = 44.9333
+rect_scale = Vector2( 0.05, 0.1 )
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Icons03" type="Sprite" parent="CenterContainer/BuySell"]
+position = Vector2( 8.32001, 16.5333 )
+scale = Vector2( 0.075, 0.125 )
+texture = ExtResource( 5 )
+
+[node name="HookUpgrade" type="Sprite" parent="CenterContainer/BuySell"]
+position = Vector2( 16, 17.0667 )
+scale = Vector2( 0.05, 0.1 )
+texture = ExtResource( 10 )
+
+[node name="BuyLureButton" type="Button" parent="CenterContainer/BuySell"]
+margin_left = 22.08
+margin_top = 14.9333
+margin_right = 130.08
+margin_bottom = 52.9333
+rect_scale = Vector2( 0.05, 0.1 )
+icon = ExtResource( 1 )
+flat = true
+
+[node name="Icons17" type="Sprite" parent="CenterContainer/BuySell"]
+position = Vector2( 8.32001, 24.5333 )
+scale = Vector2( 0.075, 0.125 )
+texture = ExtResource( 3 )
+
+[node name="CaughtFish" type="Sprite" parent="CenterContainer/BuySell"]
+position = Vector2( 16, 25.0667 )
+scale = Vector2( 0.05, 0.1 )
+texture = ExtResource( 9 )
+
+[node name="SellButton" type="Button" parent="CenterContainer/BuySell"]
+margin_left = 22.08
+margin_top = 23.0667
+margin_right = 130.08
+margin_bottom = 61.0667
+rect_scale = Vector2( 0.05, 0.1 )
+icon = ExtResource( 4 )
+flat = true
+
+[connection signal="pressed" from="CenterContainer/BuySell/BuyButton" to="." method="_on_BuyButton_pressed"]
+[connection signal="pressed" from="CenterContainer/BuySell/BuyLureButton" to="." method="_on_BuyLureButton_pressed"]
+[connection signal="pressed" from="CenterContainer/BuySell/SellButton" to="." method="_on_SellButton3_pressed"]

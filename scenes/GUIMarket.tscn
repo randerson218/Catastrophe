@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/Market.tscn" type="PackedScene" id=1]
+
+[node name="GUIMarket" type="CanvasLayer"]
+
+[node name="Market" parent="." instance=ExtResource( 1 )]
