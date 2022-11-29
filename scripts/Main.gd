@@ -137,12 +137,10 @@ func spawn_fish():
 	elif rarity == "Exotic":
 		#choose which rarity fish to use as base
 		var base_fish_rarity = random.randi_range(0,exotic_choices.size()-1)
-		print(base_fish_rarity)
 		#pick random fish from that rarity
 		var i = random.randi_range(0,exotic_choices[base_fish_rarity].size()-1)
-		print(exotic_choices[base_fish_rarity])
-		print(i)
 		mob = exotic_choices[base_fish_rarity][i].instance()
+		#make fish worth twice the usual amount
 		mob.worth = base_fish_rarity+1 * 10
 		
 		var shader = load("res://resources/fish/shaders/rainbow.tres")
