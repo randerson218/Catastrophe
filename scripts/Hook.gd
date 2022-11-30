@@ -27,6 +27,7 @@ func _process(delta):
 		hook_cast = true
 		toggle_enabled()
 		get_node("../Camera").target_node = self
+		$Audio.stream = load("res://resources/audio/cast.mp3")
 		$Audio.play()
 	elif Input.is_action_just_pressed("interact_key") and hook_cast and !fish_on_hook:
 		hook_cast = false
