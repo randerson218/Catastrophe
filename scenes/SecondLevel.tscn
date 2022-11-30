@@ -992,7 +992,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 1/z_index = 0
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
@@ -1015,6 +1015,8 @@ layer = 2
 script = ExtResource( 6 )
 
 [node name="GUIMoney" parent="." instance=ExtResource( 18 )]
+
+[node name="GUI" parent="." instance=ExtResource( 9 )]
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 40, 16 )

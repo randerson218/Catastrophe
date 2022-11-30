@@ -121,9 +121,9 @@ custom_colors/default_color = Color( 1, 0.976471, 0.886275, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 
 [node name="HookCost" type="RichTextLabel" parent="."]
-margin_left = 480.0
+margin_left = 464.0
 margin_top = 336.0
-margin_right = 544.0
+margin_right = 600.0
 margin_bottom = 392.0
 custom_colors/default_color = Color( 1, 0.976471, 0.886275, 1 )
 custom_fonts/normal_font = SubResource( 3 )

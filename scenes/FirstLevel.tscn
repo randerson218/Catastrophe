@@ -836,6 +836,8 @@ script = ExtResource( 4 )
 
 [node name="GUIMoney" parent="." instance=ExtResource( 17 )]
 
+[node name="GUI" parent="." instance=ExtResource( 16 )]
+
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 40, 16 )
 script = ExtResource( 3 )
@@ -952,8 +954,6 @@ position = Vector2( 113, -2 )
 
 [node name="BeachForestBackground" type="Sprite" parent="."]
 position = Vector2( 696, 208 )
-
-[node name="GUI" parent="." instance=ExtResource( 16 )]
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
