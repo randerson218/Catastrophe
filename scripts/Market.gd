@@ -1,7 +1,7 @@
 extends Control
 
 var is_paused = false setget set_is_paused
-var lure_cost = 50
+var lure_cost = 500
 var capacity_cost = 50
 
 func _unhandled_input(event):
@@ -32,6 +32,7 @@ func _on_BuyLureButton_pressed():
 	if Globals.player_money >= lure_cost:
 		Globals.lure_level += 1
 		Globals.player_money -= lure_cost
+		lure_cost *= 2
 		print(Globals.lure_level)
 		print("Players money:" + str(Globals.player_money))
 
