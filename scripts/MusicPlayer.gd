@@ -12,3 +12,9 @@ func _ready():
 	if current_scene == "res://scenes/FirstLevel.tscn":
 		self.stream = load("res://resources/audio/boat-buds-mark-sparling.mp3")
 		self.playing = true
+	elif current_scene == "res://scenes/SecondLevel.tscn":
+		self.stream = load("res://resources/audio/Cave.wav")
+		self.playing = true
+	else:
+		self.stream = load("res://resources/audio/Town.wav")
+		self.playing = true

@@ -34,6 +34,8 @@ func _process(delta):
 	if $RayCast2D.get_collider() != null:
 		if$RayCast2D.get_collider() == get_node("../Boat"):
 			get_node("../Hook").fish_on_hook =false
+			get_node("../Hook/Audio").stream = load("res://resources/audio/FishCaughtPop.wav")
+			get_node("../Hook/Audio").play()
 			queue_free()
 			Globals.worth_in_boat += worth
 			Globals.num_fish_in_boat +=1

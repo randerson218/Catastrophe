@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://scripts/Boat.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
@@ -24,6 +24,8 @@
 [ext_resource path="res://resources/market/environmenttrans.png" type="Texture" id=22]
 [ext_resource path="res://resources/market/rocks.png" type="Texture" id=23]
 [ext_resource path="res://resources/tiles/blank_tile.png" type="Texture" id=24]
+[ext_resource path="res://resources/audio/boat-buds-mark-sparling.mp3" type="AudioStream" id=25]
+[ext_resource path="res://scripts/MusicPlayer.gd" type="Script" id=26]
 
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 10, 13 )
@@ -1182,5 +1184,10 @@ tile_set = SubResource( 69 )
 cell_size = Vector2( 8, 8 )
 format = 1
 tile_data = PoolIntArray( -196592, 1, 0, -131056, 1, 0, -65520, 1, 0 )
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
+volume_db = -25.0
+script = ExtResource( 26 )
 
 [connection signal="body_entered" from="Hook" to="Hook" method="_on_Hook_body_entered"]
