@@ -3,7 +3,6 @@ extends KinematicBody2D
 
 export var speed = 150 # How fast the player will move (pixels/sec).
 export var gravity := 2000
-export var money = 0
 
 var in_boat = false
 var in_control = true
