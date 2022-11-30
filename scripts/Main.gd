@@ -64,8 +64,16 @@ func _process(delta):
 	
 	if TownPoint != null:
 		if Player.position.x < TownPoint.position.x:
+			var current_scene = get_tree().current_scene.filename
 			Globals.prev_scene = get_tree().current_scene.filename
-			get_tree().change_scene("res://scenes/Town1.tscn")
+			
+			if current_scene == "res://scenes/FirstLevel.tscn":
+				get_tree().change_scene("res://scenes/Town1.tscn")
+			elif current_scene == "res://scenes/SecondLevel.tscn":
+				get_tree().change_scene("res://scenes/Town2.tscn")
+			elif current_scene == "res://scenes/ThirdLevel.tscn":
+				get_tree().change_scene("res://scenes/Town3.tscn")
+			
 
 func new_game():
 	var fish_spawned = 0
