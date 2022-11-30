@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://scripts/PauseMenu.gd" type="Script" id=1]
+[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://scenes/TransitionScreen.tscn" type="PackedScene" id=2]
 [ext_resource path="res://resources/gui/Wooden Pixel Art GUI 32x32.png" type="Texture" id=3]
 [ext_resource path="res://resources/main/Stars-698254.webm" type="VideoStream" id=4]
-[ext_resource path="res://scenes/VideoPlayer.gd" type="Script" id=5]
+[ext_resource path="res://scripts/VideoPlayer.gd" type="Script" id=5]
 [ext_resource path="res://resources/main/RocketCat/SpaceshipMainMenu1.png" type="Texture" id=6]
 [ext_resource path="res://resources/main/RocketCat/SpaceshipMainMenu2.png" type="Texture" id=7]
 [ext_resource path="res://resources/main/RocketCat/SpaceshipMainMenu3.png" type="Texture" id=8]
@@ -55,6 +56,8 @@ void fragment()
 shader = SubResource( 8 )
 shader_param/amount = 250
 
+[sub_resource type="ShaderMaterial" id=11]
+
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
@@ -63,7 +66,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="PauseMenu" type="Control"]
+[node name="MainMenu" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -103,13 +106,17 @@ buffering_msec = 10
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+material = SubResource( 11 )
 position = Vector2( 240, 360 )
 rotation = -2.35619
 scale = Vector2( 3.33443, 3.33444 )
 frames = SubResource( 10 )
-frame = 1
 speed_scale = 2.5
 playing = true
 
+[node name="TransitionScreen" parent="." instance=ExtResource( 2 )]
+visible = false
+
 [connection signal="pressed" from="CanvasLayer/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="pressed" from="CanvasLayer/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="transitioned" from="TransitionScreen" to="." method="_on_TransitionScreen_transitioned"]

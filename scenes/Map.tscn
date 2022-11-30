@@ -3523,11 +3523,11 @@ icon = SubResource( 5 )
 flat = true
 
 [node name="ForestButton" type="Button" parent="CenterContainer/TextureRect"]
-margin_left = 448.0
-margin_top = 1077.5
-margin_right = 473.0
-margin_bottom = 1097.5
-rect_scale = Vector2( 5, 5 )
+margin_left = 440.0
+margin_top = 1037.5
+margin_right = 468.0
+margin_bottom = 1059.5
+rect_scale = Vector2( 7, 7 )
 icon = SubResource( 4 )
 flat = true
 
