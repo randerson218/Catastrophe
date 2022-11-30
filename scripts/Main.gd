@@ -66,7 +66,6 @@ func _process(delta):
 		if Player.position.x < TownPoint.position.x:
 			var current_scene = get_tree().current_scene.filename
 			Globals.prev_scene = get_tree().current_scene.filename
-			$TransitionScreen.transition()
 			
 			if current_scene == "res://scenes/FirstLevel.tscn":
 				get_tree().change_scene("res://scenes/Town1.tscn")
