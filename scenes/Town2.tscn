@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://scripts/Town.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Rabbit.gd" type="Script" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://resources/TileSets/Foundation.tres" type="TileSet" id=23]
 [ext_resource path="res://resources/TileSets/SmallTrees.tres" type="TileSet" id=24]
 [ext_resource path="res://resources/TileSets/Trees.tres" type="TileSet" id=25]
+[ext_resource path="res://resources/TileSets/Barriert.tres" type="TileSet" id=26]
 
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 10, 13 )
@@ -721,3 +722,9 @@ tile_set = ExtResource( 24 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -393259, 3, 0, -458719, 2, 0, -458700, 2, 0, -196603, 5, 0, -196598, 4, 0 )
+
+[node name="Barrier" type="TileMap" parent="."]
+tile_set = ExtResource( 26 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( -131127, 1, 0, -65591, 1, 0, -55, 1, 0 )

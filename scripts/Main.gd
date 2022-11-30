@@ -61,6 +61,7 @@ func _ready():
 func _process(delta):
 	spawn_fish()
 	
+	
 	if TownPoint != null:
 		if Player.position.x < TownPoint.position.x:
 			Globals.prev_scene = get_tree().current_scene.filename
