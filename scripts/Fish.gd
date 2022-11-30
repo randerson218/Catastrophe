@@ -40,7 +40,10 @@ func _process(delta):
 			print(Globals.worth_in_boat)
 	
 	if self.global_position.x > water_right:
-		queue_free() 
+		queue_free()
+	
+	if self.material != null:
+		$AnimatedSprite.material = self.material 
 	
 func on_Hook(hookposition):
 	self.on_hook = true

@@ -8,7 +8,7 @@ onready var Player = get_node("Player")
 #Offset from top and bottom of water to spawn fish
 export var spawn_offset = 25
 #Maximum fish to spawn
-export var MAX_FISH = 50
+export var MAX_FISH = 1000
 #Fish to spawn on initial load
 var init_fish = int(MAX_FISH/1)
 
@@ -48,6 +48,8 @@ var mythic = [preload("res://scenes/fish_scenes/SkeletonFish5.tscn")]
 var boss = [preload("res://scenes/fish_scenes/Angler.tscn"),
 	preload("res://scenes/fish_scenes/Sawfish.tscn"),
 	preload("res://scenes/fish_scenes/Shark.tscn")]
+
+var exotic_choices = [common,uncommon,rare,epic,legendary,mythic]
 
 func _ready():
 	randomize()
@@ -131,11 +133,19 @@ func spawn_fish():
 	elif rarity == "Boss":
 		var i = random.randi_range(0,boss.size()-1)
 		mob = boss[i].instance()
-		mob.worth = 35
+		mob.worth = 50
 	elif rarity == "Exotic":
-		var i = random.randi_range(0,boss.size()-1)
-		mob = boss[i].instance()
-		mob.worth = 40
+		#choose which rarity fish to use as base
+		var base_fish_rarity = random.randi_range(0,exotic_choices.size()-1)
+		#pick random fish from that rarity
+		var i = random.randi_range(0,exotic_choices[base_fish_rarity].size()-1)
+		mob = exotic_choices[base_fish_rarity][i].instance()
+		#make fish worth twice the usual amount
+		mob.worth = base_fish_rarity+1 * 10
+		
+		var shader = load("res://resources/fish/shaders/rainbow.tres")
+		mob.material = shader
+
 	
 	
 	mob.add_to_group("fish")
