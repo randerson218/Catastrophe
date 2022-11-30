@@ -66,7 +66,6 @@ func _process(delta):
 		if Player.position.x < TownPoint.position.x:
 			var current_scene = get_tree().current_scene.filename
 			Globals.prev_scene = get_tree().current_scene.filename
-			$TransitionScreen.transition()
 			
 			if current_scene == "res://scenes/FirstLevel.tscn":
 				get_tree().change_scene("res://scenes/Town1.tscn")
@@ -179,27 +178,3 @@ func spawn_fish():
 				add_child(mob)
 		else:
 			add_child(mob)
-
-
-
-func _on_TransitionScreen_transitioned():
-	
-	if TownPoint != null:
-		if Player.position.x < TownPoint.position.x:
-			var current_scene = get_tree().current_scene.filename
-			Globals.prev_scene = get_tree().current_scene.filename
-			
-			if current_scene == "res://scenes/FirstLevel.tscn":
-				self.get_child(0).queue_free()
-				get_tree().change_scene("res://scenes/Town1.tscn")
-			elif current_scene == "res://scenes/SecondLevel.tscn":
-				self.get_child(0).queue_free()
-				get_tree().change_scene("res://scenes/Town2.tscn")
-			elif current_scene == "res://scenes/ThirdLevel.tscn":
-				self.get_child(0).queue_free()
-				get_tree().change_scene("res://scenes/Town3.tscn")
-	
-
-
-func _on_TransitionScreen2_transitioned():
-	pass # Replace with function body.

@@ -1000,7 +1000,7 @@ tile_data = PoolIntArray( -262128, 1, 0 )
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 23 )
-volume_db = -25.0
+volume_db = -15.0
 script = ExtResource( 24 )
 
 [connection signal="body_entered" from="Hook" to="Hook" method="_on_Hook_body_entered"]
