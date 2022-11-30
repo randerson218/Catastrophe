@@ -14,14 +14,16 @@ func set_is_paused(value):
 
 
 func _on_CaveButton_pressed():
-	get_tree().change_scene("res://scenes/SecondLevel.tscn")
-	self.is_paused = false
+	if Globals.lure_level >= 1:
+		get_tree().change_scene("res://scenes/SecondLevel.tscn")
+		self.is_paused = false
 
 
 
 func _on_DesetButton_pressed():
-	get_tree().change_scene("res://scenes/ThirdLevel.tscn")
-	self.is_paused = false
+	if Globals.lure_level >= 2:
+		get_tree().change_scene("res://scenes/ThirdLevel.tscn")
+		self.is_paused = false
 
 
 func _on_ForestButton_pressed():

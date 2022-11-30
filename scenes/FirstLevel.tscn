@@ -5,7 +5,7 @@
 [ext_resource path="res://scripts/Player.gd" type="Script" id=3]
 [ext_resource path="res://scripts/GUIMap.gd" type="Script" id=4]
 [ext_resource path="res://resources/objects/hook.png" type="Texture" id=5]
-[ext_resource path="res://resources/pixel_cats/pipo-nekonin001.png" type="Texture" id=6]
+[ext_resource path="res://resources/pixel_cats/pipo-nekonin032.png" type="Texture" id=6]
 [ext_resource path="res://scripts/GUIPause.gd" type="Script" id=7]
 [ext_resource path="res://scenes/GUIMap.tscn" type="PackedScene" id=8]
 [ext_resource path="res://resources/background/forest_background.png" type="Texture" id=9]
@@ -31,39 +31,39 @@
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 10, 13 )
 
-[sub_resource type="AtlasTexture" id=54]
+[sub_resource type="AtlasTexture" id=69]
 atlas = ExtResource( 6 )
 region = Rect2( 32, 64, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=31]
+[sub_resource type="AtlasTexture" id=70]
 atlas = ExtResource( 6 )
 region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=28]
+[sub_resource type="AtlasTexture" id=71]
 atlas = ExtResource( 6 )
 region = Rect2( 0, 64, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=29]
+[sub_resource type="AtlasTexture" id=72]
 atlas = ExtResource( 6 )
 region = Rect2( 32, 64, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=30]
+[sub_resource type="AtlasTexture" id=73]
 atlas = ExtResource( 6 )
 region = Rect2( 64, 64, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ SubResource( 54 ) ],
+"frames": [ SubResource( 69 ) ],
 "loop": true,
 "name": "boat",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 31 ) ],
+"frames": [ SubResource( 70 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
+"frames": [ SubResource( 71 ), SubResource( 72 ), SubResource( 73 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
