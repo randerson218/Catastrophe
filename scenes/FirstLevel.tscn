@@ -813,6 +813,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 1/z_index = 0
 
 [node name="Node2D" type="Node2D"]
+position = Vector2( -8, -12 )
 script = ExtResource( 33 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
@@ -961,7 +962,7 @@ volume_db = -25.0
 script = ExtResource( 15 )
 
 [node name="TownPoint" type="Position2D" parent="."]
-position = Vector2( -424, -12 )
+position = Vector2( -312, -12 )
 
 [node name="MaxRight" type="Position2D" parent="."]
 position = Vector2( 1700, 0 )

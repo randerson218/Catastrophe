@@ -29,7 +29,7 @@ texture = ExtResource( 3 )
 [node name="MoneyBack" type="NinePatchRect" parent="."]
 margin_left = 32.0
 margin_top = 32.0
-margin_right = 152.0
+margin_right = 184.0
 margin_bottom = 72.0
 texture = SubResource( 1 )
 patch_margin_left = 32
@@ -39,7 +39,7 @@ patch_margin_right = 32
 [node name="MoneyLabel" type="RichTextLabel" parent="MoneyBack"]
 margin_left = 47.0
 margin_top = 5.0
-margin_right = 119.0
+margin_right = 144.0
 margin_bottom = 45.0
 custom_colors/default_color = Color( 1, 0.976471, 0.886275, 1 )
 custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
