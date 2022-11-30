@@ -749,10 +749,10 @@ shader_param/h = 1.0
 shader_param/s = 1.0
 shader_param/v = 0.614
 
-[sub_resource type="ConvexPolygonShape2D" id=68]
+[sub_resource type="ConvexPolygonShape2D" id=67]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
-[sub_resource type="TileSet" id=69]
+[sub_resource type="TileSet" id=68]
 0/name = "blank_tile.png 0"
 0/texture = ExtResource( 22 )
 0/tex_offset = Vector2( 0, 0 )
@@ -777,14 +777,14 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 1/navigation_offset = Vector2( 0, 0 )
 1/shape_offset = Vector2( 0, 0 )
 1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape = SubResource( 68 )
+1/shape = SubResource( 67 )
 1/shape_one_way = false
 1/shape_one_way_margin = 1.0
 1/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 68 ),
+"shape": SubResource( 67 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
@@ -825,7 +825,6 @@ shape = SubResource( 24 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 position = Vector2( -16, -31 )
-z_index = 2
 frames = SubResource( 55 )
 animation = "boat"
 
@@ -943,6 +942,7 @@ position = Vector2( -320, -12 )
 
 [node name="Trees1" type="TileMap" parent="."]
 material = SubResource( 60 )
+z_index = -1
 tile_set = ExtResource( 21 )
 cell_size = Vector2( 16, 16 )
 format = 1
@@ -989,9 +989,9 @@ format = 1
 tile_data = PoolIntArray( -262209, 9, 0, -262196, 9, 0, -262167, 9, 0, -262162, 9, 0, -262145, 9, 0, -131134, 8, 0, -131100, 8, 0, -65617, 8, 0, -65614, 8, 0, -58, 7, 0, -27, 7, 0, -21, 7, 0 )
 
 [node name="Barrier" type="TileMap" parent="."]
-tile_set = SubResource( 69 )
+tile_set = SubResource( 68 )
 cell_size = Vector2( 8, 8 )
 format = 1
-tile_data = PoolIntArray( -196592, 1, 0, -131056, 1, 0, -65520, 1, 0 )
+tile_data = PoolIntArray( -262128, 1, 0 )
 
 [connection signal="body_entered" from="Hook" to="Hook" method="_on_Hook_body_entered"]
