@@ -13,14 +13,18 @@ func set_is_paused(value):
 	is_paused = value
 	#get_tree().paused = is_paused
 	visible = is_paused
-
-
+	
+func _process(delta):
+	$CapacityCost.text = "$" + str(capacity_cost)
+	$HookCost.text = "$" + str(lure_cost)
+	$FishCost.text = "$" + str(Globals.worth_in_boat)
 
 
 func _on_BuyButton_pressed():
 	if Globals.player_money >= capacity_cost:
 		Globals.max_capacity += 1
 		Globals.player_money -= capacity_cost
+		capacity_cost *= 2
 		print(Globals.max_capacity)
 		print("Players money:" + str(Globals.player_money))
 
