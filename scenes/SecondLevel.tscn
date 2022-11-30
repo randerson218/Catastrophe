@@ -1028,7 +1028,6 @@ shape = SubResource( 24 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 position = Vector2( -16, -31 )
-z_index = 2
 frames = SubResource( 56 )
 animation = "boat"
 
@@ -1146,6 +1145,7 @@ position = Vector2( -320, -12 )
 
 [node name="Trees1" type="TileMap" parent="."]
 material = SubResource( 64 )
+z_index = -1
 tile_set = SubResource( 65 )
 cell_size = Vector2( 16, 16 )
 format = 1
@@ -1183,7 +1183,7 @@ format = 1
 tile_set = SubResource( 69 )
 cell_size = Vector2( 8, 8 )
 format = 1
-tile_data = PoolIntArray( -196592, 1, 0, -131056, 1, 0, -65520, 1, 0 )
+tile_data = PoolIntArray( -262128, 1, 0 )
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 25 )
