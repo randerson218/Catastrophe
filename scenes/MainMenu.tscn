@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/TransitionScreen.tscn" type="PackedScene" id=2]
@@ -8,6 +8,11 @@
 [ext_resource path="res://resources/main/RocketCat/SpaceshipMainMenu1.png" type="Texture" id=6]
 [ext_resource path="res://resources/main/RocketCat/SpaceshipMainMenu2.png" type="Texture" id=7]
 [ext_resource path="res://resources/main/RocketCat/SpaceshipMainMenu3.png" type="Texture" id=8]
+[ext_resource path="res://resources/audio/SpaceMusic.mp3" type="AudioStream" id=9]
+[ext_resource path="res://scripts/MusicPlayer.gd" type="Script" id=10]
+[ext_resource path="res://resources/gui/StartDark.png" type="Texture" id=11]
+[ext_resource path="res://resources/gui/Catastrophe.png" type="Texture" id=12]
+[ext_resource path="res://resources/gui/StartButton.png" type="Texture" id=13]
 
 [sub_resource type="AtlasTexture" id=5]
 flags = 4
@@ -18,16 +23,6 @@ region = Rect2( 416, 512, 96, 32 )
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 416, 544, 96, 32 )
-
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 416, 320, 128, 32 )
-
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 416, 352, 128, 32 )
 
 [sub_resource type="Shader" id=8]
 code = "/*
@@ -86,20 +81,20 @@ texture_pressed = SubResource( 7 )
 stretch_mode = 1
 
 [node name="Resume" type="TextureButton" parent="CanvasLayer"]
-margin_left = 672.0
+margin_left = 709.0
 margin_top = 232.0
-margin_right = 800.0
+margin_right = 801.0
 margin_bottom = 264.0
 rect_scale = Vector2( 2, 2 )
-texture_normal = SubResource( 4 )
-texture_pressed = SubResource( 6 )
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 11 )
 
 [node name="VideoPlayer" type="VideoPlayer" parent="."]
 material = SubResource( 9 )
-margin_left = 1784.0
-margin_top = 39.9999
-margin_right = 3537.0
-margin_bottom = 1491.0
+margin_left = 1680.0
+margin_top = 184.0
+margin_right = 3433.0
+margin_bottom = 1635.0
 rect_rotation = 135.0
 stream = ExtResource( 4 )
 buffering_msec = 10
@@ -107,15 +102,26 @@ script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 11 )
-position = Vector2( 240, 360 )
+position = Vector2( 352, 368 )
 rotation = -2.35619
 scale = Vector2( 3.33443, 3.33444 )
 frames = SubResource( 10 )
+frame = 2
 speed_scale = 2.5
 playing = true
 
 [node name="TransitionScreen" parent="." instance=ExtResource( 2 )]
 visible = false
+
+[node name="Catastrophe" type="Sprite" parent="."]
+position = Vector2( 512, 88 )
+scale = Vector2( 3.7, 3.7 )
+texture = ExtResource( 12 )
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -25.0
+script = ExtResource( 10 )
 
 [connection signal="pressed" from="CanvasLayer/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="pressed" from="CanvasLayer/Resume" to="." method="_on_Resume_pressed"]

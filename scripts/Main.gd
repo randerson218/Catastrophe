@@ -199,3 +199,7 @@ func _on_TransitionScreen_transitioned():
 				self.get_child(0).queue_free()
 				get_tree().change_scene("res://scenes/Town3.tscn")
 	
+
+
+func _on_TransitionScreen2_transitioned():
+	pass # Replace with function body.

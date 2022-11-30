@@ -22,7 +22,7 @@
 [ext_resource path="res://resources/TileSets/SmallTrees.tres" type="TileSet" id=20]
 [ext_resource path="res://resources/TileSets/Trees.tres" type="TileSet" id=21]
 [ext_resource path="res://resources/tiles/blank_tile.png" type="Texture" id=22]
-[ext_resource path="res://resources/audio/boat-buds-mark-sparling.mp3" type="AudioStream" id=23]
+[ext_resource path="res://resources/audio/Desert.mp3" type="AudioStream" id=23]
 [ext_resource path="res://scripts/MusicPlayer.gd" type="Script" id=24]
 
 [sub_resource type="RectangleShape2D" id=24]
