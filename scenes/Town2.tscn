@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://scripts/Town.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Rabbit.gd" type="Script" id=2]
@@ -510,6 +510,9 @@ shader_param/h = 1.0
 shader_param/s = 0.682
 shader_param/v = 0.394
 
+[sub_resource type="RectangleShape2D" id=74]
+extents = Vector2( 40.5, 30 )
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
@@ -735,3 +738,10 @@ tile_data = PoolIntArray( -131127, 1, 0, -65591, 1, 0, -55, 1, 0 )
 stream = ExtResource( 27 )
 volume_db = -25.0
 script = ExtResource( 28 )
+
+[node name="MarketArea" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarketArea"]
+position = Vector2( -88, -18 )
+shape = SubResource( 74 )

@@ -25,6 +25,7 @@ func _on_BuyButton_pressed():
 		Globals.max_capacity += 1
 		Globals.player_money -= capacity_cost
 		capacity_cost *= 2
+		$Audio.play()
 		print(Globals.max_capacity)
 		print("Players money:" + str(Globals.player_money))
 
@@ -33,6 +34,7 @@ func _on_BuyLureButton_pressed():
 		Globals.lure_level += 1
 		Globals.player_money -= lure_cost
 		lure_cost *= 2
+		$Audio.play()
 		print(Globals.lure_level)
 		print("Players money:" + str(Globals.player_money))
 
@@ -40,4 +42,5 @@ func _on_SellButton_pressed():
 	Globals.player_money += Globals.worth_in_boat
 	Globals.worth_in_boat = 0
 	Globals.num_fish_in_boat = 0
+	$Audio.play()
 	print("Players money:" + str(Globals.player_money))
