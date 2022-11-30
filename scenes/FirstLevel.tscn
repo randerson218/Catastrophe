@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://scripts/Hook.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Boat.gd" type="Script" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://scenes/GUIMoney.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/GUIPause.tscn" type="PackedScene" id=18]
 [ext_resource path="res://resources/tiles/blank_tile.png" type="Texture" id=19]
+[ext_resource path="res://scenes/TransitionScreenLevel.gd" type="Script" id=20]
+[ext_resource path="res://scenes/TransitionScreen.tscn" type="PackedScene" id=21]
 [ext_resource path="res://icon.png" type="Texture" id=25]
 [ext_resource path="res://resources/objects/Boat.png" type="Texture" id=30]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=33]
@@ -995,5 +997,8 @@ tile_set = SubResource( 67 )
 cell_size = Vector2( 8, 8 )
 format = 1
 tile_data = PoolIntArray( -262128, 1, 0 )
+
+[node name="TransitionScreen" parent="." instance=ExtResource( 21 )]
+script = ExtResource( 20 )
 
 [connection signal="body_entered" from="Hook" to="Hook" method="_on_Hook_body_entered"]
